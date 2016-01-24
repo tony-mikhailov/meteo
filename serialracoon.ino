@@ -138,10 +138,27 @@ void setup()   /****** SETUP: RUNS ONCE ******/
 
 }
 
-long int cnt = 0;
+int cnt = 0;
+
+int board = 0;
+
+const int aInPin = A0;
+
+int analogPin = 3;     // potentiometer wiper (middle terminal) connected to analog pin 3
+
+                       // outside leads to ground and +5V
+
+int val = 0;           // variable to store the value read
+
+
+
 void loop()
 {
   int btIn = -1;
+
+  
+  val = analogRead(A0);    // read the input pin
+
   if (BTSerial.available() && (btIn = BTSerial.read()) ) {
     Serial.write(btIn);
   }
@@ -166,14 +183,16 @@ void loop()
     //Serial.print(fromSerialStr);
   }
 
-
   char out[80];
 
-  sprintf(out, "test data sequince %d\r\n", cnt++);
-//  BTSerial.write("test data sequince\r\n");
-  BTSerial.write(out);
-  delay(100);
-
+  if (board == 0) {
+    //sprintf(out, "seqid %d;%d;;;\r\n", cnt++, val);
+    sprintf(out, "%d;%d;%d;%d\r\n", cnt, val+0, val+1, val+2);
+    Serial.println(out); 
+    BTSerial.write(out);
+    delay(100);
+  }
+  cnt++;
 }
 
 
