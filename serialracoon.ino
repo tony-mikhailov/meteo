@@ -1,3 +1,5 @@
+#include <SFE_BMP180.h>
+
 /* YourDuino.com Example: BlueTooth HC-05 Setup
  - WHAT IT DOES: 
    - Sets "Key" pin on HC-05 HIGH to enable command mode
@@ -114,6 +116,9 @@ void setup()   /****** SETUP: RUNS ONCE ******/
   pinMode(HC_05_SETUPKEY, OUTPUT);  // this pin will pull the HC-05 pin 34 (key pin) HIGH to switch module to AT mode
   pinMode(HC_05_PWR1, OUTPUT);      // Connect in parallel to HC-05 VCC
   pinMode(HC_05_PWR2, OUTPUT);      // Connect in parallel to HC-05 VCC
+
+  pinMode(10, INPUT);
+  pinMode(8, INPUT);
   
 //  digitalWrite(HC_05_SETUPKEY, HIGH);  // Set command mode when powering up
   
@@ -147,7 +152,9 @@ int analogPin = 3;
 int v0 = 0;           
 int v1 = 0;           
 int v2 = 0;           
-int v3 = 0;           
+int v3 = 0;
+int d10 = 0;           
+int d8 = 0;           
 
 void loop()
 {
@@ -184,9 +191,12 @@ void loop()
   v2 = analogRead(A2);
   v3 = analogRead(A3);
 
+  d10 = digitalRead(10);
+  d8 = digitalRead(8);
+
   if (board == 0) {
     //sprintf(out, "seqid %d;%d;;;\r\n", cnt++, val);
-    sprintf(out, "%d;%d;%d;%d;%d\r\n", cnt, v0, v1, v2, v3);
+    sprintf(out, "seqid=%d;A0=%d;A1=%d;D8=%d;D10=%d\r\n", cnt, v0, v1, d8, d10);
     Serial.println(out); 
     BTSerial.write(out);
     delay(100);
