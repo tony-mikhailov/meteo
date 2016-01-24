@@ -25,34 +25,116 @@
 #define HC_05_SETUPKEY        4
 #define HC_05_PWR1            5  // Connect in parallel to HC-05 VCC
 #define HC_05_PWR2            6  // Connect in parallel to HC-05 VCC
+#define CMD_W                 500 // msec
+
+#define msg(x) Serial.println(x)
 
 /*-----( Declare objects )-----*/
 SoftwareSerial BTSerial(HC_05_TXD_ARDUINO_RXD, HC_05_RXD_ARDUINO_TXD); // RX | TX
 /*-----( Declare Variables )-----*/
 //NONE
 
+enum BTDeviceState {
+  error = -2,
+  off = -1,
+  data = 0,
+  at = 1,
+};
+
+class BTDevice 
+{
+private:
+  BTDeviceState m_state;
+  
+public:
+  BTDevice(): m_state(off) {  };
+
+  void setState(BTDeviceState state) {
+    if (m_state == state) {
+      msg("try to set BT to the same state " + state);
+      
+      return;
+    }
+    switch (state) {
+      case off: {
+        
+        msg("Power off");
+        digitalWrite(HC_05_PWR1, LOW);
+        digitalWrite(HC_05_PWR2, LOW);  
+        delay(CMD_W);
+        m_state = off;
+        return;        
+      }
+      case data: {
+        if (m_state == off) {
+          digitalWrite(HC_05_SETUPKEY, LOW);  // Set command mode when powering up
+          delay(CMD_W);       
+          digitalWrite(HC_05_PWR1, HIGH);
+          digitalWrite(HC_05_PWR2, HIGH);  
+          delay(CMD_W);
+                    
+          m_state = data;
+          return;        
+        }
+      }
+      case at: {
+        if (m_state == off) {
+          digitalWrite(HC_05_SETUPKEY, HIGH);  // Set command mode when powering up
+          delay(CMD_W);       
+          digitalWrite(HC_05_PWR1, HIGH);
+          digitalWrite(HC_05_PWR2, HIGH);  
+          delay(CMD_W);        
+
+          m_state = at;
+          return;
+        }
+        
+      }
+      
+    }
+  };
+
+  BTDeviceState state() {return m_state;};
+  
+};
+
+/*
+void BTDevice::initPins() {
+  pinMode(HC_05_SETUPKEY, OUTPUT);  // this pin will pull the HC-05 pin 34 (key pin) HIGH to switch module to AT mode
+  pinMode(HC_05_PWR1, OUTPUT);      // Connect in parallel to HC-05 VCC
+  pinMode(HC_05_PWR2, OUTPUT);      // Connect in parallel to HC-05 VCC
+};
+*/
+
+BTDevice *bt = new BTDevice();
+
 void setup()   /****** SETUP: RUNS ONCE ******/
 {
+
   pinMode(HC_05_SETUPKEY, OUTPUT);  // this pin will pull the HC-05 pin 34 (key pin) HIGH to switch module to AT mode
   pinMode(HC_05_PWR1, OUTPUT);      // Connect in parallel to HC-05 VCC
   pinMode(HC_05_PWR2, OUTPUT);      // Connect in parallel to HC-05 VCC
   
-  digitalWrite(HC_05_SETUPKEY, HIGH);  // Set command mode when powering up
+//  digitalWrite(HC_05_SETUPKEY, HIGH);  // Set command mode when powering up
   
   Serial.begin(9600);   // For the Arduino IDE Serial Monitor
-  Serial.println("YourDuino.com HC-05 Bluetooth Module AT Command Utility V1.02");
-  Serial.println("Set Serial Monitor to 'Both NL & CR' and '9600 Baud' at bottom right");
-  Serial.println("Vcc Power Up DELAY");
+  BTSerial.begin(38400);  // HC-05 default speed in AT command mode
+
+  bt->setState(data);
+/*
+  msg("Pwr on");
   delay(2000);
   
-  Serial.println("Applying VCC Power. LED should blink SLOWLY: 2 Seconds ON/OFF");
+  msg("Applying VCC Power. LED should blink SLOWLY: 2 Seconds ON/OFF");
+  
   digitalWrite(HC_05_PWR1, HIGH); // Power VCC
   digitalWrite(HC_05_PWR2, HIGH);  
+  
   delay(2000);
 
-  
   Serial.println("Enter AT commands in top window.");
   BTSerial.begin(38400);  // HC-05 default speed in AT command mode
+*/
 
 }
 
@@ -60,18 +142,22 @@ void loop()
 {
   int btIn = -1;
   if (BTSerial.available() && (btIn = BTSerial.read()) ) {
-    //btIn = BTSerial.read();
-    //String fromBTStr = String((char)btIn);
-    //String outStr = "recv from bt:" + fromBTStr;
-    
-//    Serial.write(outStr.c_str());
     Serial.write(btIn);
-    //Serial.print(outStr);
   }
 
   if (Serial.available()) {
-    int serIn = Serial.read();
-    String fromSerialStr = String((char)serIn);
+    char inChar = (char)Serial.read();
+
+    if (inChar == '*') {
+      bt->setState(off);
+      bt->setState(data);
+    }
+    if (inChar == '?') {
+      bt->setState(off);
+      bt->setState(at);
+    }
+    
+    String fromSerialStr = String(inChar);
     
     BTSerial.write(fromSerialStr.c_str());
     Serial.write(fromSerialStr.c_str());
