@@ -1,4 +1,3 @@
-#include <SFE_BMP180.h>
 
 /* YourDuino.com Example: BlueTooth HC-05 Setup
  - WHAT IT DOES: 
@@ -21,6 +20,8 @@
 
 /*-----( Import needed libraries )-----*/
 #include <SoftwareSerial.h>  
+#include <SFE_BMP180.h>
+
 /*-----( Declare Constants and Pin Numbers )-----*/
 #define HC_05_TXD_ARDUINO_RXD 2
 #define HC_05_RXD_ARDUINO_TXD 3
@@ -110,6 +111,8 @@ void BTDevice::initPins() {
 
 BTDevice *bt = new BTDevice();
 
+SFE_BMP180 pressure;
+
 void setup()   /****** SETUP: RUNS ONCE ******/
 {
 
@@ -126,6 +129,12 @@ void setup()   /****** SETUP: RUNS ONCE ******/
   BTSerial.begin(38400);  // HC-05 default speed in AT command mode
 
   bt->setState(data);
+
+  if (pressure.begin())
+    Serial.println("BMP180 init success");
+  else
+    Serial.println("BMP180 init failed!!!");
+
 /*
   msg("Pwr on");
   delay(2000);
@@ -155,6 +164,9 @@ int v2 = 0;
 int v3 = 0;
 int d10 = 0;           
 int d8 = 0;           
+double T = -10.0;
+double P = -10.0;
+
 
 void loop()
 {
@@ -184,7 +196,6 @@ void loop()
     //Serial.print(fromSerialStr);
   }
 
-  char out[80];
 
   v0 = analogRead(A0);
   v1 = analogRead(A1);
@@ -194,10 +205,34 @@ void loop()
   d10 = digitalRead(10);
   d8 = digitalRead(8);
 
+  char status;
+
+  // abirvalg!!!
+  
+  status = pressure.startTemperature();
+  if (status != 0)  {
+    delay(status);
+    status = pressure.getTemperature(T);
+    Serial.println(T);
+    if (status != 0) {
+      status = pressure.startPressure(3);
+      if (status != 0) {
+        delay(status);
+
+        status = pressure.getPressure(P,T);
+        if (status != 0) {
+
+        } else { T = -1.0; P = -1.0; }
+      } else { T = -1.0; P = -1.0; }
+    } else { T = -1.0; P = -1.0; }
+  } else { T = -1.0; P = -1.0; }
+
+
   if (board == 0) {
-    //sprintf(out, "seqid %d;%d;;;\r\n", cnt++, val);
-    sprintf(out, "seqid=%d;A0=%d;A1=%d;D8=%d;D10=%d\r\n", cnt, v0, v1, d8, d10);
-    Serial.println(out); 
+    char out[80];
+    //sprintf(out, "seqid %d;%d;;;\r\n", cnt++, val); // 0.7501
+    sprintf(out, "seqid=%d;A0=%d;A1=%d;D8=%d;D10=%d;T=%d;P=%d\r\n", cnt, v0, v1, d8, d10, (int)T, (int)(P*0.7501));
+    Serial.print(out); 
     BTSerial.write(out);
     delay(100);
   }
