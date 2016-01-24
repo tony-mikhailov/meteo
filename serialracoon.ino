@@ -139,25 +139,19 @@ void setup()   /****** SETUP: RUNS ONCE ******/
 }
 
 int cnt = 0;
-
 int board = 0;
 
 const int aInPin = A0;
-
-int analogPin = 3;     // potentiometer wiper (middle terminal) connected to analog pin 3
-
-                       // outside leads to ground and +5V
-
-int val = 0;           // variable to store the value read
-
-
+int analogPin = 3;
+     
+int v0 = 0;           
+int v1 = 0;           
+int v2 = 0;           
+int v3 = 0;           
 
 void loop()
 {
   int btIn = -1;
-
-  
-  val = analogRead(A0);    // read the input pin
 
   if (BTSerial.available() && (btIn = BTSerial.read()) ) {
     Serial.write(btIn);
@@ -185,9 +179,14 @@ void loop()
 
   char out[80];
 
+  v0 = analogRead(A0);
+  v1 = analogRead(A1);
+  v2 = analogRead(A2);
+  v3 = analogRead(A3);
+
   if (board == 0) {
     //sprintf(out, "seqid %d;%d;;;\r\n", cnt++, val);
-    sprintf(out, "%d;%d;%d;%d\r\n", cnt, val+0, val+1, val+2);
+    sprintf(out, "%d;%d;%d;%d;%d\r\n", cnt, v0, v1, v2, v3);
     Serial.println(out); 
     BTSerial.write(out);
     delay(100);
