@@ -25,7 +25,7 @@
 #define HC_05_SETUPKEY        4
 #define HC_05_PWR1            5  // Connect in parallel to HC-05 VCC
 #define HC_05_PWR2            6  // Connect in parallel to HC-05 VCC
-#define CMD_W                 500 // msec
+#define CMD_W                 1100 // msec
 
 #define msg(x) Serial.println(x)
 
@@ -138,6 +138,7 @@ void setup()   /****** SETUP: RUNS ONCE ******/
 
 }
 
+long int cnt = 0;
 void loop()
 {
   int btIn = -1;
@@ -164,6 +165,14 @@ void loop()
     //BTSerial.print(fromSerialStr);
     //Serial.print(fromSerialStr);
   }
+
+
+  char out[80];
+
+  sprintf(out, "test data sequince %d\r\n", cnt++);
+//  BTSerial.write("test data sequince\r\n");
+  BTSerial.write(out);
+  delay(100);
 
 }
 
