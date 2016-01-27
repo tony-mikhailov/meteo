@@ -1,28 +1,16 @@
 
-/* YourDuino.com Example: BlueTooth HC-05 Setup
- - WHAT IT DOES: 
-   - Sets "Key" pin on HC-05 HIGH to enable command mode
-   - THEN applies Vcc from 2 Arduino pins to start command mode
-   - SHOULD see the HC-05 LED Blink SLOWLY: 2 seconds ON/OFF 
- 
- Sends, Receives AT commands
-   For Setup of HC-05 type BlueTooth Module
-   NOTE: Set Serial Monitor to 'Both NL & CR' and '9600 Baud' at bottom right   
- - SEE the comments after "//" on each line below
- - CONNECTIONS:
+/*  
+   CONNECTIONS:
    - GND
    - Pin 2 to HC-05 TXD
    - Pin 3 to HC-05 RXD
    - Pin 4 to HC-05 KEY
    - Pin 5+6 to HC-05 VCC for power control
- - V1.02 05/02/2015
-   Questions: terry@yourduino.com */
+ */
 
-/*-----( Import needed libraries )-----*/
 #include <SoftwareSerial.h>  
 #include <SFE_BMP180.h>
 
-/*-----( Declare Constants and Pin Numbers )-----*/
 #define HC_05_TXD_ARDUINO_RXD 2
 #define HC_05_RXD_ARDUINO_TXD 3
 #define HC_05_SETUPKEY        4
@@ -32,10 +20,9 @@
 
 #define msg(x) Serial.println(x)
 
-/*-----( Declare objects )-----*/
+const int board = 0; // 0 -- for outdoor, 1 -- indor module
+
 SoftwareSerial BTSerial(HC_05_TXD_ARDUINO_RXD, HC_05_RXD_ARDUINO_TXD); // RX | TX
-/*-----( Declare Variables )-----*/
-//NONE
 
 enum BTDeviceState {
   error = -2,
@@ -153,7 +140,6 @@ void setup()   /****** SETUP: RUNS ONCE ******/
 }
 
 int cnt = 0;
-int board = 0;
 
 const int aInPin = A0;
 int analogPin = 3;
@@ -167,6 +153,8 @@ int d8 = 0;
 double T = -10.0;
 double P = -10.0;
 
+#define bt_echo_send(x) Serial.print(x); BTSerial.write(x);
+#define fbt_echo_send(x) bt_echo_send(x); bt_echo_send(" ");
 
 void loop()
 {
@@ -208,32 +196,39 @@ void loop()
   char status;
 
   // abirvalg!!!
-  
-  status = pressure.startTemperature();
-  if (status != 0)  {
-    delay(status);
-    status = pressure.getTemperature(T);
-    Serial.println(T);
-    if (status != 0) {
-      status = pressure.startPressure(3);
+  if (board == 0) {
+    status = pressure.startTemperature();
+    if (status != 0)  {
+      delay(status);
+      status = pressure.getTemperature(T);
+      //Serial.println(T);
       if (status != 0) {
-        delay(status);
-
-        status = pressure.getPressure(P,T);
+        status = pressure.startPressure(3);
         if (status != 0) {
-
+          delay(status);
+    
+          status = pressure.getPressure(P,T);
+          if (status != 0) {
+    
+          } else { T = -1.0; P = -1.0; }
         } else { T = -1.0; P = -1.0; }
       } else { T = -1.0; P = -1.0; }
     } else { T = -1.0; P = -1.0; }
-  } else { T = -1.0; P = -1.0; }
 
+    bt_echo_send("(")
+    fbt_echo_send(cnt); 
+    fbt_echo_send(v0); 
+    fbt_echo_send(-1);
+    fbt_echo_send(-1);
+    fbt_echo_send(v1); 
+    fbt_echo_send(d8);
+    fbt_echo_send(d10);
+    fbt_echo_send(T);
+    fbt_echo_send(P);
+    bt_echo_send(")")
 
-  if (board == 0) {
-    char out[80];
-    //sprintf(out, "seqid %d;%d;;;\r\n", cnt++, val); // 0.7501
-    sprintf(out, "seqid=%d;A0=%d;A1=%d;D8=%d;D10=%d;T=%d;P=%d\r\n", cnt, v0, v1, d8, d10, (int)T, (int)(P*0.7501));
-    Serial.print(out); 
-    BTSerial.write(out);
+    bt_echo_send("\r\n")
+        
     delay(100);
   }
   cnt++;
