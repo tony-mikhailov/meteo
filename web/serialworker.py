@@ -3,7 +3,7 @@ import time
 import multiprocessing
 
 ## Change this to match your local settings
-SERIAL_PORT = '/dev/ttyACM0'
+SERIAL_PORT = '/dev/tty.usbmodem1411'
 SERIAL_BAUDRATE = 9600
 
 class SerialProcess(multiprocessing.Process):
@@ -35,11 +35,11 @@ class SerialProcess(multiprocessing.Process):
  
                 # send it to the serial device
                 self.writeSerial(data)
-                print "writing to serial: " + data
+                #print "writing to serial: " + data
  
             # look for incoming serial data
             if (self.sp.inWaiting() > 0):
             	data = self.readSerial()
-                # print "reading from serial: " + data
+                #print "reading from serial: " + data
                 # send it back to tornado
             	self.output_queue.put(data)

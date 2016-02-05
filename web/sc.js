@@ -9,11 +9,7 @@ var windDirection = $('#windDirection');
 var precipitation = $('#precipitation');
 var cloudiness = $('#cloudiness');
 
-//window.location.host
-//var socket = new WebSocket("ws://localhost:8080/ws");
-var ws_url = "ws://" + window.location.host + "/ws"; 
-var socket = new WebSocket(ws_url);
-
+var socket = new WebSocket("ws://localhost:8080/ws");
  
 socket.onopen = function(){  
   console.log("connected"); 

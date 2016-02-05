@@ -18,17 +18,30 @@ input_queue = multiprocessing.Queue()
 output_queue = multiprocessing.Queue()
 
 
- 
+class MyStaticFileHandler(tornado.web.StaticFileHandler):
+    def set_extra_headers(self, path):
+        print "MyStaticFileHandler Disable cache"
+        self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+        
+         
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
+        self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
         self.render('index.html')
 
 class SerialConsoleHandler(tornado.web.RequestHandler):
+    def set_extra_headers(self, path):
+        # Disable cache
+        self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+        
     def get(self):
         self.render('sc.html')
 
 
 class StaticFileHandler(tornado.web.RequestHandler):
+    def set_extra_headers(self, path):
+        # Disable cache
+        self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
 	def get(self):
 		self.render('main.js')
  
@@ -66,8 +79,9 @@ if __name__ == '__main__':
 	    handlers=[
 	        (r"/", IndexHandler),
 	        (r"/sc", SerialConsoleHandler),
-	        (r"/static/(.*)", tornado.web.StaticFileHandler, {'path':  '/home/pi/WS/src/'}),
-	        (r"/ws", WebSocketHandler)
+            (r"/ws", WebSocketHandler),
+	#	        (r"/static/(.*)", tornado.web.StaticFileHandler, {'path':  '/home/pi/WS/src/'}),
+	        (r"/(.*)", MyStaticFileHandler, {'path':  './'})
 	    ]
 	)
 	httpServer = tornado.httpserver.HTTPServer(app)
