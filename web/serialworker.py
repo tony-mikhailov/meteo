@@ -30,6 +30,7 @@ class SerialProcess(multiprocessing.Process):
         return self.sp.readline().replace("\n", "")
  
     def run(self):
+        self.output_queue.put("()");
         while True:
             if not self.input_queue.empty():
                 data = self.input_queue.get()
@@ -41,6 +42,7 @@ class SerialProcess(multiprocessing.Process):
                     data = self.readSerial()
                     self.output_queue.put(data)
             except:
+                self.output_queue.put("()");
                 try:
                     self.sp = serial.Serial(SERIAL_PORT, SERIAL_BAUDRATE, timeout=1)
                     self.sp.flushInput()
