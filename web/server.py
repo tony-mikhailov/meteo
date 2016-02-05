@@ -17,30 +17,18 @@ clients = []
 input_queue = multiprocessing.Queue()
 output_queue = multiprocessing.Queue()
 
-
 class MyStaticFileHandler(tornado.web.StaticFileHandler):
     def set_extra_headers(self, path):
         print "MyStaticFileHandler Disable cache"
         self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
         
-         
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
         self.render('index.html')
 
-class SerialConsoleHandler(tornado.web.RequestHandler):
-    def set_extra_headers(self, path):
-        # Disable cache
-        self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
-        
-    def get(self):
-        self.render('sc.html')
-
-
 class StaticFileHandler(tornado.web.RequestHandler):
     def set_extra_headers(self, path):
-        # Disable cache
         self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
 	def get(self):
 		self.render('main.js')
@@ -53,24 +41,21 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
  
     def on_message(self, message):
         print 'tornado received from client: %s' % json.dumps(message)
+        print '^ ignored'
         #self.write_message('ack')
-        input_queue.put(message)
+        #input_queue.put(message)
  
     def on_close(self):
         print 'connection closed'
         clients.remove(self)
 
-
-## check the queue for pending messages, and rely that to all connected clients
 def checkQueue():
 	if not output_queue.empty():
 		message = output_queue.get()
 		for c in clients:
 			c.write_message(message)
 
-
 if __name__ == '__main__':
-	## start the serial worker in background (as a deamon)
 	sp = serialworker.SerialProcess(input_queue, output_queue)
 	sp.daemon = True
 	sp.start()
@@ -78,9 +63,7 @@ if __name__ == '__main__':
 	app = tornado.web.Application(
 	    handlers=[
 	        (r"/", IndexHandler),
-	        (r"/sc", SerialConsoleHandler),
             (r"/ws", WebSocketHandler),
-	#	        (r"/static/(.*)", tornado.web.StaticFileHandler, {'path':  '/home/pi/WS/src/'}),
 	        (r"/(.*)", MyStaticFileHandler, {'path':  './'})
 	    ]
 	)
@@ -89,7 +72,7 @@ if __name__ == '__main__':
 	print "Listening on port:", options.port
 
 	mainLoop = tornado.ioloop.IOLoop.instance()
-	## adjust the scheduler_interval according to the frames sent by the serial port
+
 	scheduler_interval = 100
 	scheduler = tornado.ioloop.PeriodicCallback(checkQueue, scheduler_interval, io_loop = mainLoop)
 	scheduler.start()
