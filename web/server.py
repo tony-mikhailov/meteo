@@ -42,8 +42,6 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         print 'connection closed'
         clients.remove(self)
 
-
-
 def checkQueue():
 	if not output_queue.empty():
 		message = output_queue.get()
