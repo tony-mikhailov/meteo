@@ -53,7 +53,7 @@ function socket_onmessage(message) {
     precipitation.text(vals[4]);
     cloudiness.text(vals[5]);
 
-    nowTime.text( formatDateReadible(Date($.now())) );
+    nowTime.text( formatDateReadible($.now()) );
 
     console.log(s);
   } else {
@@ -79,10 +79,10 @@ function createSocket(url) {
 var ws_url = "ws://" + window.location.host + "/ws"; 
 var socket = createSocket(ws_url);
 
-var tid = setInterval(function tf() {
-    if (socket.readyState != 1) {
+var socket_guard = setInterval(function() {
+    if (socket.readyState == 3) {
         socket = createSocket(ws_url);
     }
-}, 300);
+}, 1000);
 
 });
