@@ -1,18 +1,15 @@
 $(document).ready(function(){
 
+
 function formatDateReadible(date) {
     var monthNames = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
     var dayNames = ["воскресенье","понедельник","вторник","среда","четверг","пятница","суббота"];
     
-    
-    // пятница, 5 февраля 2016 года, 
-    
     var d = new Date(date); 
-   
+    // пятница, 5 февраля 2016 года, 
     return dayNames[d.getDay()] + ", " + d.getDate() + " " + monthNames[d.getMonth()] + " " + d.getYear() + " года";
 }
 
-//var received = $('#received');
 var temperature = $('#temperature');
 var humidity = $('#humidity');
 var pressureBarr = $('#pressureBarr');
@@ -23,14 +20,21 @@ var precipitation = $('#precipitation');
 var cloudiness = $('#cloudiness');
 var nowTime = $('#nowTime');
 
-var ws_url = "ws://" + window.location.host + "/ws"; 
-var socket = new WebSocket(ws_url);
- 
-socket.onopen = function(){  
+function socket_onopen() {  
   console.log("connected"); 
 }; 
 
-socket.onmessage = function (message) {
+function showAllUnknownValue() {
+    pressureBarr.text("?");
+    temperature.text("?");
+    pressureTorr.text("?");
+    windSpeed.text("?");
+    windDirection.text("?");
+    precipitation.text("?");
+    cloudiness.text("?");    
+}
+
+function socket_onmessage(message) {
   var msg = message.data;
 
   if ((msg.charAt(0) == '(') && (msg.charAt(msg.length - 2) == ')') ) {
@@ -51,22 +55,34 @@ socket.onmessage = function (message) {
 
     nowTime.text( formatDateReadible(Date($.now())) );
 
-
     console.log(s);
   } else {
-    pressureBarr.text("ОШИБКА");
-    temperature.text("ОШИБКА");
-    pressureTorr.text("ОШИБКА");
-    windSpeed.text("ОШИБКА");
-    windDirection.text("ОШИБКА");
-    precipitation.text("ОШИБКА");
-    cloudiness.text("ОШИБКА");
+      showAllUnknownValue();
+
   }
   
 };
 
-socket.onclose = function(){
-  console.log("disconnected"); 
+function socket_onclose() {
+  console.log("disconnected");
+  showAllUnknownValue();
 };
+
+function createSocket(url) {
+    var socket = new WebSocket(ws_url);
+    socket.onmessage = socket_onmessage;
+    socket.onopen = socket_onopen;
+    socket.onclose = socket_onclose;
+    return socket;
+} 
+
+var ws_url = "ws://" + window.location.host + "/ws"; 
+var socket = createSocket(ws_url);
+
+var tid = setInterval(function tf() {
+    if (socket.readyState != 1) {
+        socket = createSocket(ws_url);
+    }
+}, 300);
 
 });
