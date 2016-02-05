@@ -1,5 +1,17 @@
 $(document).ready(function(){
 
+function formatDateReadible(date) {
+    var monthNames = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+    var dayNames = ["воскресенье","понедельник","вторник","среда","четверг","пятница","суббота"];
+    
+    
+    // пятница, 5 февраля 2016 года, 
+    
+    var d = new Date(date); 
+   
+    return dayNames[d.getDay()] + ", " + d.getDate() + " " + monthNames[d.getMonth()] + " " + d.getYear() + " года";
+}
+
 //var received = $('#received');
 var temperature = $('#temperature');
 var humidity = $('#humidity');
@@ -9,6 +21,7 @@ var windSpeed = $('#windSpeed');
 var windDirection = $('#windDirection');
 var precipitation = $('#precipitation');
 var cloudiness = $('#cloudiness');
+var nowTime = $('#nowTime');
 
 var ws_url = "ws://" + window.location.host + "/ws"; 
 var socket = new WebSocket(ws_url);
@@ -35,6 +48,9 @@ socket.onmessage = function (message) {
     windDirection.text(vals[1]);
     precipitation.text(vals[4]);
     cloudiness.text(vals[5]);
+
+    nowTime.text( formatDateReadible(Date($.now())) );
+
 
     console.log(s);
   } else {
