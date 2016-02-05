@@ -12,7 +12,12 @@ class SerialProcess(multiprocessing.Process):
         multiprocessing.Process.__init__(self)
         self.input_queue = input_queue
         self.output_queue = output_queue
-        self.sp = serial.Serial(SERIAL_PORT, SERIAL_BAUDRATE, timeout=1)
+        try:
+            self.sp = serial.Serial(SERIAL_PORT, SERIAL_BAUDRATE, timeout=1)
+            self.sp.flushInput()
+            print "connected to " + SERIAL_PORT        
+        except:
+            print "couldn`t conect to " + SERIAL_PORT        
  
     def close(self):
         self.sp.close()
@@ -25,15 +30,21 @@ class SerialProcess(multiprocessing.Process):
         return self.sp.readline().replace("\n", "")
  
     def run(self):
- 
-    	self.sp.flushInput()
- 
         while True:
             if not self.input_queue.empty():
                 data = self.input_queue.get()
-                self.writeSerial(data)
+                #do nothing for sec reasons
+                #self.writeSerial(data)
  
-            if (self.sp.inWaiting() > 0):
-            	data = self.readSerial()
-                #print "reading from serial: " + data
-            	self.output_queue.put(data)
+            try:
+                if (self.sp.inWaiting() > 0):
+                    data = self.readSerial()
+                    self.output_queue.put(data)
+            except:
+                try:
+                    self.sp = serial.Serial(SERIAL_PORT, SERIAL_BAUDRATE, timeout=1)
+                    self.sp.flushInput()
+                    print "connected to " + SERIAL_PORT        
+                except:
+                    print "couldn`t conect to " + SERIAL_PORT        
+                    time.sleep(1)

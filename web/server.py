@@ -19,19 +19,12 @@ output_queue = multiprocessing.Queue()
 
 class MyStaticFileHandler(tornado.web.StaticFileHandler):
     def set_extra_headers(self, path):
-        print "MyStaticFileHandler Disable cache"
         self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
         
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
         self.render('index.html')
-
-class StaticFileHandler(tornado.web.RequestHandler):
-    def set_extra_headers(self, path):
-        self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
-	def get(self):
-		self.render('main.js')
  
 class WebSocketHandler(tornado.websocket.WebSocketHandler):
     def open(self):
@@ -48,6 +41,8 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
     def on_close(self):
         print 'connection closed'
         clients.remove(self)
+
+
 
 def checkQueue():
 	if not output_queue.empty():
