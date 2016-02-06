@@ -80,9 +80,12 @@ var ws_url = "ws://" + window.location.host + "/ws";
 var socket = createSocket(ws_url);
 
 var socket_guard = setInterval(function() {
-    if (socket.readyState == 3) {
+    if (socket.readyState != 1) {
         socket = createSocket(ws_url);
+        console.log("socket.readyState not connected");
+ 
     }
+
 }, 1000);
 
 });

@@ -8,8 +8,13 @@
    - Pin 5+6 to HC-05 VCC for power control
  */
 
-#include <SoftwareSerial.h>  
+#define INDOOR
+
+#include <SoftwareSerial.h>
+
+#ifndef INDOOR
 #include <SFE_BMP180.h>
+#endif
 
 #define HC_05_TXD_ARDUINO_RXD 2
 #define HC_05_RXD_ARDUINO_TXD 3
@@ -20,7 +25,11 @@
 
 #define msg(x) Serial.println(x)
 
+#ifdef INDOOR
+const int board = 1; // 0 -- for outdoor, 1 -- indor module
+#else
 const int board = 0; // 0 -- for outdoor, 1 -- indor module
+#endif
 
 SoftwareSerial BTSerial(HC_05_TXD_ARDUINO_RXD, HC_05_RXD_ARDUINO_TXD); // RX | TX
 
@@ -98,7 +107,10 @@ void BTDevice::initPins() {
 
 BTDevice *bt = new BTDevice();
 
+#ifndef INDOOR
 SFE_BMP180 pressure;
+#endif
+
 
 void setup()   /****** SETUP: RUNS ONCE ******/
 {
@@ -117,10 +129,13 @@ void setup()   /****** SETUP: RUNS ONCE ******/
 
   bt->setState(data);
 
+#ifndef INDOOR
   if (pressure.begin())
     Serial.println("BMP180 init success");
   else
     Serial.println("BMP180 init failed!!!");
+#endif
+
 
 /*
   msg("Pwr on");
@@ -184,6 +199,7 @@ void loop()
     //Serial.print(fromSerialStr);
   }
 
+#ifndef INDOOR
 
   v0 = analogRead(A0);
   v1 = analogRead(A1);
@@ -233,6 +249,8 @@ void loop()
         
     delay(100);
   }
+
+#endif
   cnt++;
 }
 

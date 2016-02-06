@@ -10,7 +10,7 @@ import multiprocessing
 import serialworker
 import json
  
-define("port", default=8080, help="run on the given port", type=int)
+define("port", default=80, help="run on the given port", type=int)
  
 clients = [] 
 
@@ -55,9 +55,9 @@ if __name__ == '__main__':
 	tornado.options.parse_command_line()
 	app = tornado.web.Application(
 	    handlers=[
-	        (r"/", IndexHandler),
-            (r"/ws", WebSocketHandler),
-	        (r"/(.*)", MyStaticFileHandler, {'path':  './'})
+                (r"/", IndexHandler),
+                (r"/ws", WebSocketHandler),
+                (r"/(.*)", MyStaticFileHandler, {'path':  '/home/pi/wrk/meteo/web/'})
 	    ]
 	)
 	httpServer = tornado.httpserver.HTTPServer(app)

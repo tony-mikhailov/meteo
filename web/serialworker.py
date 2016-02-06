@@ -3,8 +3,9 @@ import time
 import multiprocessing
 
 ## Change this to match your local settings
-SERIAL_PORT = '/dev/tty.usbmodem1411'
 SERIAL_BAUDRATE = 9600
+#SERIAL_PORT = '/dev/tty.usbmodem1411'
+SERIAL_PORT = '/dev/ttyACM0'
 
 class SerialProcess(multiprocessing.Process):
  
