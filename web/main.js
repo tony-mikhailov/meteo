@@ -69,7 +69,7 @@ function socket_onclose() {
 };
 
 function createSocket(url) {
-    var socket = new WebSocket(ws_url);
+    var socket = new ReconnectingWebSocket(ws_url);
     socket.onmessage = socket_onmessage;
     socket.onopen = socket_onopen;
     socket.onclose = socket_onclose;
@@ -79,10 +79,12 @@ function createSocket(url) {
 var ws_url = "ws://" + window.location.host + "/ws"; 
 var socket = createSocket(ws_url);
 
+/*
 var socket_guard = setInterval(function() {
     if (socket.readyState == 3) {
         socket = createSocket(ws_url);
     }
 }, 1000);
+*/
 
 });
