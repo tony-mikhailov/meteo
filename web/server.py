@@ -57,6 +57,7 @@ if __name__ == '__main__':
 	    handlers=[
 	        (r"/", IndexHandler),
             (r"/ws", WebSocketHandler),
+	        (r"/img/(.*)", MyStaticFileHandler, {'path':  '../img/'}),
 	        (r"/(.*)", MyStaticFileHandler, {'path':  './'})
 	    ]
 	)
