@@ -17,7 +17,6 @@ SoftwareSerial BTSerial(HC_05_TXD_ARDUINO_RXD, HC_05_RXD_ARDUINO_TXD);
 
 void setup()
 {
-
   Serial.begin(9600); 
   BTSerial.begin(38400);
 }
