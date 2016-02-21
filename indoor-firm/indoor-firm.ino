@@ -21,11 +21,62 @@ void setup()
   BTSerial.begin(38400);
 }
 
+#define IN_MAX 100
+
+char inMsg[IN_MAX];
+int msgPos = -1;
+
+enum Phase {
+  resetMsg = -1,
+  waitMsg = 0,
+  appendMsg = 1,
+  msgDone = 2
+  
+} parsePhase = resetMsg;
+
+
+void processMsg(char* msg)
+{
+//    Serial.print(">"); // send to Serial to process by web server
+    Serial.println(msg); // send to Serial to process by web server
+         
+}
+
 void loop()
 {
-  int btIn = -1;
+  if (Phase::resetMsg == parsePhase) {
+    memset(inMsg, '\0', IN_MAX);
+    parsePhase = Phase::waitMsg;
+  }
+  char btIn = -1;
   if (BTSerial.available() && (btIn = BTSerial.read()) ) {
-    Serial.write(btIn);
+//    Serial.write(btIn);
+
+    if (Phase::waitMsg == parsePhase) {
+      if ('(' == btIn) {
+        parsePhase = Phase::appendMsg;
+        msgPos = 0;
+      }
+    }
+
+    if (msgPos >= 0 && (Phase::appendMsg == parsePhase)) {
+        inMsg[msgPos] = btIn;
+        msgPos++;
+        if (msgPos >= IN_MAX) {
+           parsePhase = Phase::resetMsg;
+        }
+    }
+
+    if (Phase::appendMsg == parsePhase) {
+      if (')' == btIn) {
+        parsePhase = Phase::msgDone;
+      }
+    }
+
+    if (Phase::msgDone == parsePhase) {
+        processMsg(inMsg);     
+        parsePhase = Phase::resetMsg;
+    }
   }
 }
 
