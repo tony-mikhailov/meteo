@@ -14,7 +14,7 @@
 #define DHT_PIN 7
 #define ONE_WIRE_BUS 9
 
-#define LOOP_TIME                 1000 // msec
+#define LOOP_TIME                 500 // msec
 
 #define msg(x) Serial.println(x)
 
@@ -53,21 +53,6 @@ void setup()
   sensors.begin();
 }
 
-int cnt = 0;
-
-const int aInPin = A0;
-int analogPin = 3;
-     
-int v0 = 0;           
-int v1 = 0;           
-int v2 = 0;           
-int v3 = 0;
-int d10 = 0;           
-int d8 = 0;           
-double T = -10.0;
-double P = -10.0;
-double H = -0.0;
-
 #define bt_echo_send(x) Serial.print(x); BTSerial.print(x);
 #define fbt_echo_send(x) bt_echo_send(#x); bt_echo_send(" "); bt_echo_send(x); bt_echo_send(" ");
 
@@ -92,49 +77,61 @@ int getPT(double &P, double &T) {
   return -1;
 }
 
+long int msg = 0;
+int a0 = 0;           
+int a1 = 0;           
+int a2 = 0;           
+int a3 = 0;
+int d10 = 0;           
+int d8 = 0;
+           
+float H = -1.0;
+
 void loop()
 {
   unsigned long StartTime = millis();
   
-  v0 = analogRead(A0);
-  v1 = analogRead(A1);
-  v2 = analogRead(A2);
-  v3 = analogRead(A3);
+  a0 = analogRead(A0);
+  a1 = analogRead(A1);
+  a2 = analogRead(A2);
+  a3 = analogRead(A3);
 
   d10 = digitalRead(10);
   d8 = digitalRead(8);
 
-  float h = dht.readHumidity();
-  float t = dht.readTemperature();
+  float H = dht.readHumidity();
+  float Th = dht.readTemperature();
 
-  getPT(P, T);
+  double P = -1.0;
+  double Tp = -1.0;
+  getPT(P, Tp);
   
-  sensors.requestTemperatures();
-  float tX = sensors.getTempCByIndex(0);
+  //sensors.requestTemperatures();
+  //float t0 = sensors.getTempCByIndex(0);
 
-  unsigned long CurrentTime = millis();
-  unsigned long ElapsedTime = CurrentTime - StartTime;
-  unsigned long dt = ElapsedTime > LOOP_TIME ? 0 : LOOP_TIME - ElapsedTime;
 
   bt_echo_send("(")
-  fbt_echo_send(cnt); 
-  fbt_echo_send(v0); 
-  fbt_echo_send(tX);
-  fbt_echo_send(t);
-  fbt_echo_send(v1); 
+  fbt_echo_send(msg); 
+  fbt_echo_send(a0); 
+  fbt_echo_send(a1); 
   fbt_echo_send(d8);
   fbt_echo_send(d10);
-  fbt_echo_send(T);
   fbt_echo_send(P);
-  fbt_echo_send(h);
-  fbt_echo_send(dt);
+  fbt_echo_send(H);
+  fbt_echo_send(Th);
+  fbt_echo_send(Tp);
+  //fbt_echo_send(t0);
+  
   bt_echo_send(")");
 
   bt_echo_send("\r\n");
   
+  unsigned long CurrentTime = millis();
+  unsigned long ElapsedTime = CurrentTime - StartTime;
+  unsigned long dt = ElapsedTime > LOOP_TIME ? 0 : LOOP_TIME - ElapsedTime;
   delay(dt);
 
-  cnt++;
+  msg++;
 }
 
 
