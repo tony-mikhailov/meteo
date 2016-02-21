@@ -1,3 +1,5 @@
+#include <LiquidCrystal.h>
+
 
 /*  
    CONNECTIONS:
@@ -15,10 +17,15 @@
 
 SoftwareSerial BTSerial(HC_05_TXD_ARDUINO_RXD, HC_05_RXD_ARDUINO_TXD);
 
+LiquidCrystal lcd(8, 9, 4, 5, 6, 7); 
+
+
 void setup()
 {
   Serial.begin(9600); 
   BTSerial.begin(38400);
+  lcd.begin(16, 2);     
+  lcd.print("Yarrr!!!");
 }
 
 #define IN_MAX 100
@@ -37,9 +44,10 @@ enum Phase {
 
 void processMsg(char* msg)
 {
-//    Serial.print(">"); // send to Serial to process by web server
     Serial.println(msg); // send to Serial to process by web server
-         
+    //parse and show telemetry data
+    lcd.print(msg);
+    
 }
 
 void loop()
@@ -63,6 +71,9 @@ void loop()
         inMsg[msgPos] = btIn;
         msgPos++;
         if (msgPos >= IN_MAX) {
+           parsePhase = Phase::resetMsg;
+        }
+        if (('(' == btIn) && (msgPos > 1)) {
            parsePhase = Phase::resetMsg;
         }
     }
