@@ -45,7 +45,6 @@ enum Phase {
 
 String fget(String msg, char* f)
 {
-    //String s = msg.substring(1, s.length() - 2);// remove '(' and ')' from string begin/end 
     String s = msg;
     char* p = strstr(s.c_str(), f);
     if (p) {
@@ -63,9 +62,17 @@ void processMsg(char* msg)
 
     String s(msg);
 
-    String val = fget(s, "msg");
+   //String val = fget(s, "msg");
+    //lcd.setCursor(0,0);
+    //lcd.print(val);
+
+    String sP = fget(s, "P");
     lcd.setCursor(0,0);
-    lcd.print(val);
+    lcd.print(sP);
+
+    String sTp = fget(s, "Tp");
+    lcd.setCursor(0,1);
+    lcd.print(sTp);
 }
 
 void loop()
