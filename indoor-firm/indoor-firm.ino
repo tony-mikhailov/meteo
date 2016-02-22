@@ -25,7 +25,8 @@ void setup()
   Serial.begin(9600); 
   BTSerial.begin(38400);
   lcd.begin(16, 2);     
-  lcd.print("Yarrr!!!");
+  lcd.setCursor(0,0);
+  lcd.print("init");
 }
 
 #define IN_MAX 100
@@ -42,12 +43,29 @@ enum Phase {
 } parsePhase = resetMsg;
 
 
+String fget(String msg, char* f)
+{
+    //String s = msg.substring(1, s.length() - 2);// remove '(' and ')' from string begin/end 
+    String s = msg;
+    char* p = strstr(s.c_str(), f);
+    if (p) {
+      String cs(p);
+      String val = cs.substring(cs.indexOf(' ') + 1, cs.indexOf(' ', cs.indexOf(' ') + 1));
+      return val;
+    }
+    return String();
+}
+
 void processMsg(char* msg)
 {
     Serial.println(msg); // send to Serial to process by web server
     //parse and show telemetry data
-    lcd.print(msg);
-    
+
+    String s(msg);
+
+    String val = fget(s, "msg");
+    lcd.setCursor(0,0);
+    lcd.print(val);
 }
 
 void loop()
