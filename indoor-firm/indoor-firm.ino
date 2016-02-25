@@ -125,14 +125,17 @@ void setup()
   lcd.createChar(5, ru_T_sm_cap);
   lcd.createChar(6, ru_U);
   lcd.createChar(7, ru_Z);
+
+  delay(100);
   
   lcd.begin(16, 2);     
   lcd.setCursor(0, 0);
-  
-  lcd.write("Wait for data...");
+  lcd.write("Starting weather");
+  lcd.setCursor(0, 1);
+  lcd.write("temetry ...     ");
 }
 
-#define IN_MAX 100
+#define IN_MAX 256
 
 char inMsg[IN_MAX];
 int msgPos = -1;
@@ -203,7 +206,8 @@ void processMsg(char* msg)
 
 }
 
-volatile unsigned int err_cnt = 0;
+
+volatile unsigned long err_cnt = 0;
 
 void loop()
 {
@@ -244,21 +248,10 @@ void loop()
         parsePhase = Phase::resetMsg;
     }
   } else {
-    err_cnt++;/*
-    if (err_cnt > 7000) {
-      Serial.println("(outdoor-fail)");
-      lcd.setCursor(0, 0);
-//      lcd.write("errcnt");    
-      lcd.print("No out-door ... ");
-      lcd.setCursor(0, 1);
-      lcd.print(err_cnt);
-      //lcd.print(" ");
-
-    }  
-    */
+    err_cnt++;
   }
   
-  if (err_cnt > 50000) {
+  if (err_cnt > 70000) {
       Serial.println("(outdoor-fail)");
       lcd.setCursor(0, 0);
       lcd.print("AHTUNG !!!      ");

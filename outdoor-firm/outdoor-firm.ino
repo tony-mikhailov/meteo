@@ -16,6 +16,9 @@
 
 #define LOOP_TIME                 500 // msec
 
+#define bt_echo_send(x) Serial.print(x); BTSerial.print(x);
+#define fbt_echo_send(x) bt_echo_send(#x); bt_echo_send(" "); bt_echo_send(x); bt_echo_send(" ");
+
 #define msg(x) Serial.println(x)
 
 SoftwareSerial BTSerial(HC_05_TXD_ARDUINO_RXD, HC_05_RXD_ARDUINO_TXD); // RX | TX
@@ -52,10 +55,6 @@ void setup()
 
   sensors.begin();
 }
-
-#define bt_echo_send(x) Serial.print(x); BTSerial.print(x);
-#define fbt_echo_send(x) bt_echo_send(#x); bt_echo_send(" "); bt_echo_send(x); bt_echo_send(" ");
-
 
 int getPT(double &P, double &T) {
   char status = pressure.startTemperature();
@@ -106,8 +105,8 @@ void loop()
   double Tp = -1.0;
   getPT(P, Tp);
   
-  //sensors.requestTemperatures();
-  //float t0 = sensors.getTempCByIndex(0);
+  sensors.requestTemperatures();
+  float T0 = sensors.getTempCByIndex(0);
 
 
   bt_echo_send("(")
@@ -120,7 +119,7 @@ void loop()
   fbt_echo_send(H);
   fbt_echo_send(Th);
   fbt_echo_send(Tp);
-  //fbt_echo_send(t0);
+  fbt_echo_send(T0);
   
   bt_echo_send(")");
 
