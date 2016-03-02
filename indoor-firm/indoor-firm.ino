@@ -9,6 +9,18 @@
    - GND
  */
 
+/*
+ * 1234567890123456
+ * НЕТ ВНЕШНЕГО
+ * МОДУЛЯ
+ * (+6 chars)
+ * 
+ * 1234567890123456
+ * ПОГОДНАЯ
+ * ТЕЛЕМЕТРИЯ
+ * (+4 chars)
+ */
+
 #include <LiquidCrystal.h>
 
 #include <SoftwareSerial.h>  
@@ -23,11 +35,11 @@ LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 uint8_t dotdotdot[8] = {B0, B00000, B0, B0, B0, B0, B10101};
 
 uint8_t ru_D[8] = {
-  B01111, 
-  B00101, 
-  B00101, 
-  B01001, 
-  B10001, 
+  B00110, 
+  B00110, 
+  B01010, 
+  B01010, 
+  B01010, 
   B11111, 
   B10001,
   B00000,
@@ -133,6 +145,7 @@ void setup()
   lcd.write("Starting weather");
   lcd.setCursor(0, 1);
   lcd.write("temetry ...     ");
+  delay(500);
 }
 
 #define IN_MAX 256
@@ -176,7 +189,7 @@ void processMsg(char* msg)
     //lcd.setCursor(0,0);
     //lcd.print(val);
 
-    String sTp = fget(s, "Tp");
+    String sTp = fget(s, "T0");
     String sP = fget(s, "P");
     String sH = fget(s, "H");
     
@@ -207,7 +220,7 @@ void processMsg(char* msg)
 }
 
 
-volatile unsigned long err_cnt = 0;
+unsigned long err_cnt = 0;
 
 void loop()
 {

@@ -5,8 +5,9 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-#define HC_05_TXD_ARDUINO_RXD 2
-#define HC_05_RXD_ARDUINO_TXD 3
+#define HC_05_TXD_ARDUINO_RXD 11
+#define HC_05_RXD_ARDUINO_TXD 12
+
 #define HC_05_SETUPKEY        4
 #define HC_05_PWR1            5  
 #define HC_05_PWR2            6
@@ -14,7 +15,7 @@
 #define DHT_PIN 7
 #define ONE_WIRE_BUS 9
 
-#define LOOP_TIME                 500 // msec
+#define LOOP_TIME                 1000 // msec
 
 #define bt_echo_send(x) Serial.print(x); BTSerial.print(x);
 #define fbt_echo_send(x) bt_echo_send(#x); bt_echo_send(" "); bt_echo_send(x); bt_echo_send(" ");
@@ -104,10 +105,15 @@ void loop()
   double P = -1.0;
   double Tp = -1.0;
   getPT(P, Tp);
+
+  float T0 = -1.0;
+  float T1 = -1.0;
+  
   
   sensors.requestTemperatures();
-  float T0 = sensors.getTempCByIndex(0);
-
+  T0 = sensors.getTempCByIndex(0);
+  T1 = sensors.getTempCByIndex(1);
+  
 
   bt_echo_send("(")
   fbt_echo_send(msg); 
@@ -120,6 +126,7 @@ void loop()
   fbt_echo_send(Th);
   fbt_echo_send(Tp);
   fbt_echo_send(T0);
+  fbt_echo_send(T1);
   
   bt_echo_send(")");
 
