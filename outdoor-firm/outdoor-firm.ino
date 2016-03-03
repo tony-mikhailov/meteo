@@ -14,6 +14,7 @@
 
 #define DHT_PIN 7
 #define ONE_WIRE_BUS 9
+#define COUNTER_PIN 2
 
 #define LOOP_TIME                 1000 // msec
 
@@ -28,12 +29,21 @@ OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 SFE_BMP180 pressure;
 
+volatile long int counter = 0;
+
+void pin2int() {
+  counter++;
+}
+
 void setup() 
 {
 
   pinMode(HC_05_SETUPKEY, OUTPUT);  
   pinMode(HC_05_PWR1, OUTPUT);      // Connect in parallel to HC-05 VCC
   pinMode(HC_05_PWR2, OUTPUT);      // Connect in parallel to HC-05 VCC
+
+
+attachInterrupt(digitalPinToInterrupt(COUNTER_PIN), pin2int, FALLING);
 
   pinMode(10, INPUT);
   pinMode(8, INPUT);
@@ -127,6 +137,7 @@ void loop()
   fbt_echo_send(Tp);
   fbt_echo_send(T0);
   fbt_echo_send(T1);
+  fbt_echo_send(counter);
   
   bt_echo_send(")");
 
