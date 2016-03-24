@@ -189,6 +189,8 @@ void processMsg(char* msg)
     String sTp = fget(s, "Tp");
     String sP = fget(s, "P");
     String sH = fget(s, "H");
+    String sV = fget(s, "v");
+    String sA0 = fget(s, "a0");
     
     lcd.setCursor(0, 0);
     lcd.print("T:");
@@ -206,13 +208,25 @@ void processMsg(char* msg)
     lcd.write(4);    
     lcd.write(5);    
 
-    lcd.setCursor(0,1);
+    lcd.setCursor(0, 1);
     lcd.print("O:");
     lcd.print(sH.toInt());
-    lcd.print("% B:5.5 ");
-    lcd.write(6);    
-    lcd.write(6);    
-    lcd.write(7);    
+//    lcd.print("% B:5.5 ");
+    lcd.print("% B:");
+    lcd.print(sV.toFloat());
+    lcd.print(" ");
+
+    float a0 = sA0.toFloat();
+
+    double x = 1.5 + (358.5 - 1.5)  * (a0 - 500.0) / (1012.0 - 500.0);
+    //X = f(X1)+( f(X2) - f(X1) )*(X - X1)/(X2 - X1)
+    lcd.print((int)x);
+    if (x < 100)
+      lcd.print(" ");
+    
+
+    // ЮЮЗ
+    //lcd.write(6);lcd.write(6);lcd.write(7);    
 }
 
 
