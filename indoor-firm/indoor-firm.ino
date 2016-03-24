@@ -219,12 +219,31 @@ void processMsg(char* msg)
     float a0 = sA0.toFloat();
 
     double x = 1.5 + (358.5 - 1.5)  * (a0 - 500.0) / (1012.0 - 500.0);
-    //X = f(X1)+( f(X2) - f(X1) )*(X - X1)/(X2 - X1)
-    lcd.print((int)x);
-    if (x < 100)
-      lcd.print(" ");
-    
 
+    if (false) {
+    //X = f(X1)+( f(X2) - f(X1) )*(X - X1)/(X2 - X1)
+      lcd.print((int)x);
+      
+      if (x < 100)
+        lcd.print(" ");
+      
+      if (x < 10)
+        lcd.print(" ");
+        
+    } else {
+      String wdir = "unk";
+      if (337.5 <= x || x < 22.5) wdir = "N";   
+      else if (22.5 <= x && x < 67.5) wdir = "NE";   
+      else if (67.5 <= x && x < 112.5) wdir = "E";   
+      else if (112.5 <= x && x < 157.5) wdir = "SE";   
+      else if (157.5 <= x && x < 202.5) wdir = "S";   
+      else if (202.5 <= x && x < 247.5) wdir = "SW";   
+      else if (247.5 <= x && x < 292.5) wdir = "W";   
+      else if (292.5 <= x && x < 337.5) wdir = "NW";   
+  
+      lcd.print(wdir);
+      lcd.print(" ");
+    }
     // ЮЮЗ
     //lcd.write(6);lcd.write(6);lcd.write(7);    
 }
@@ -278,7 +297,7 @@ void loop()
       Serial.println("(outdoor-fail)");
       lcd.setCursor(0, 0);
       //          not found
-      lcd.print("No meteo station");
+      lcd.print("Connecting meteo");
       lcd.setCursor(0, 1);
       lcd.print("Have a nice day!");
       delay(1000);
