@@ -29,7 +29,7 @@ OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 SFE_BMP180 pressure;
 
-volatile long int counter = 0;
+volatile unsigned long int counter = 0;
 
 void pin2int() {
   counter++;
@@ -43,7 +43,7 @@ void setup()
   pinMode(HC_05_PWR2, OUTPUT);      // Connect in parallel to HC-05 VCC
 
 
-attachInterrupt(digitalPinToInterrupt(COUNTER_PIN), pin2int, FALLING);
+  attachInterrupt(digitalPinToInterrupt(COUNTER_PIN), pin2int, FALLING);
 
   pinMode(10, INPUT);
   pinMode(8, INPUT);
@@ -94,49 +94,56 @@ int a2 = 0;
 int a3 = 0;
 int d10 = 0;           
 int d8 = 0;
+int d2 = 0;
            
-float H = -1.0;
+double H = -1.0;
+volatile double rps = -1.0;
+
+long int ldt = 0;
+long int ldc = 0;
 
 void loop()
 {
   unsigned long StartTime = millis();
+  unsigned long int beginCounter = counter;
   
   a0 = analogRead(A0);
   a1 = analogRead(A1);
   a2 = analogRead(A2);
   a3 = analogRead(A3);
 
+  d2 = digitalRead(2);
   d10 = digitalRead(10);
   d8 = digitalRead(8);
 
-  float H = dht.readHumidity();
-  float Th = dht.readTemperature();
+  double H = dht.readHumidity();
+  double Th = dht.readTemperature();
 
   double P = -1.0;
   double Tp = -1.0;
   getPT(P, Tp);
 
-  float T0 = -1.0;
-  float T1 = -1.0;
+  double T0 = -1.0;
+  double T1 = -1.0;
   
-  
+  /*
   sensors.requestTemperatures();
   T0 = sensors.getTempCByIndex(0);
   T1 = sensors.getTempCByIndex(1);
-  
+  */
+
+  double v = 2.0 * 3.1415926 * rps * 0.07;
 
   bt_echo_send("(")
   fbt_echo_send(msg); 
+  fbt_echo_send(v); 
+  fbt_echo_send(rps); 
+  fbt_echo_send(ldt); 
+  fbt_echo_send(ldc); 
   fbt_echo_send(a0); 
-  fbt_echo_send(a1); 
-  fbt_echo_send(d8);
-  fbt_echo_send(d10);
   fbt_echo_send(P);
   fbt_echo_send(H);
-  fbt_echo_send(Th);
   fbt_echo_send(Tp);
-  fbt_echo_send(T0);
-  fbt_echo_send(T1);
   fbt_echo_send(counter);
   
   bt_echo_send(")");
@@ -146,8 +153,11 @@ void loop()
   unsigned long CurrentTime = millis();
   unsigned long ElapsedTime = CurrentTime - StartTime;
   unsigned long dt = ElapsedTime > LOOP_TIME ? 0 : LOOP_TIME - ElapsedTime;
-  delay(dt);
 
+  delay(dt);
+  ldt = millis() - StartTime;
+  ldc = abs(counter - beginCounter);
+  rps = (double)ldc / ((double)ldt / 1000.0);
   msg++;
 }
 

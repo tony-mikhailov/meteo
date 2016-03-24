@@ -180,16 +180,13 @@ float s_round(String inStr, float &f) {
 
 void processMsg(char* msg)
 {
-    Serial.println(msg); // send to Serial to process by web server
+     // send to Serial to process by hi level application like web server
+    Serial.println(msg); 
+    
     //parse and show telemetry data
-
     String s(msg);
 
-   //String val = fget(s, "msg");
-    //lcd.setCursor(0,0);
-    //lcd.print(val);
-
-    String sTp = fget(s, "T0");
+    String sTp = fget(s, "Tp");
     String sP = fget(s, "P");
     String sH = fget(s, "H");
     
@@ -216,7 +213,6 @@ void processMsg(char* msg)
     lcd.write(6);    
     lcd.write(6);    
     lcd.write(7);    
-
 }
 
 
@@ -267,9 +263,10 @@ void loop()
   if (err_cnt > 70000) {
       Serial.println("(outdoor-fail)");
       lcd.setCursor(0, 0);
-      lcd.print("AHTUNG !!!      ");
+      //          not found
+      lcd.print("No meteo station");
       lcd.setCursor(0, 1);
-      lcd.print("No out-door ... ");
+      lcd.print("Have a nice day!");
       delay(1000);
   }
   
