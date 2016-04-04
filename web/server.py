@@ -58,6 +58,10 @@ if __name__ == '__main__':
                 (r"/", IndexHandler),
                 (r"/ws", WebSocketHandler),
                 (r"/(.*)", MyStaticFileHandler, {'path':  '/home/pi/wrk/meteo/web/'})
+#	        (r"/", IndexHandler),
+#            (r"/ws", WebSocketHandler),
+#	        (r"/img/(.*)", MyStaticFileHandler, {'path':  '../img/'}),
+#	        (r"/(.*)", MyStaticFileHandler, {'path':  './'})
 	    ]
 	)
 	httpServer = tornado.httpserver.HTTPServer(app)

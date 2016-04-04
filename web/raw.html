@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>DDT Meteo</title> 
+      
+    <style>
+      body { margin: 0px; padding: 20px; }
+      #received { width: 500px; height: 400px; border: 1px solid #dedede; overflow-y:scroll;}
+      #sent { width: 500px; } 
+      
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="reconnecting-websocket.min.js" type="text/javascript" ></script>
+    <script src="main.js" type="text/javascript" ></script>
+
+  </head>
+  <body>
+  <h1>Метеостанция дворца детского творчества</h1>
+
+  Сегодня <span id="nowTime"></span><br/>
+
+  Температура воздуха <span id="temperature"></span>C<br/>
+  Атмосферное давление <span id="pressureBarr"></span>мбар, <span id="pressureTorr"></span>мм.рт.ст.<br/>
+  Скорость ветра <span id="windSpeed"></span>м/с<br/>
+  Направление ветра <span id="windDirection"></span><br/>
+  Влажность <span id="humidity"></span><br/>
+  Осадки <span id="precipitation"></span><br/>
+  Облачность <span id="cloudiness"></span><br/>
+  
+  
+  
+  </body>
+</html>
