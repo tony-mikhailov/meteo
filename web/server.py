@@ -10,7 +10,7 @@ import multiprocessing
 import serialworker
 import json
  
-define("port", default=80, help="run on the given port", type=int)
+define("port", default=8080, help="run on the given port", type=int)
  
 clients = [] 
 
