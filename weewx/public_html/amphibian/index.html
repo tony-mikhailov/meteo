@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head profile="http://www.w3.org/2005/10/profile">
+    <!-- amphibian for weewx - Copyright Matthew Wall -->
+    <title>DDT, Sarov Current Weather Conditions</title>
+    <link rel="stylesheet" type="text/css" href="amphibian.css"/>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <script src="amphibian.js"></script>
+  </head>
+
+  <body>
+
+<div class='wide bordered line cell'>
+  <div class='leftCell'>
+DDT, Sarov (54&deg; 33.60' N 043&deg; 11.40' E 502 feet)
+  </div>
+  <div class='rightCell'>
+09.04.2016 06:42
+  </div>
+</div>
+
+<div style='width: 100%'>
+  <div class='bordered header' style='clear: both'>
+    <div class='headerContent'>
+      <span class='bigger'><span class='value'>82.7</span>&deg;</span> &#176;F<br/>
+      Humidity <span class='value'>42</span> %<br/>
+      Pressure <span class='value'>29.493</span>  inHg<br/>
+    </div>
+    <div class='leftCell leftpad rightAlign'>
+      <span class='value'>     -</span>&#176;F<br/>
+      <span class='value'>     -</span>%<br/>
+      <span class='bigger'>
+      &#8681;
+      </span><br/>
+    </div>
+  </div>
+  <div class='bordered headerNoPad'>
+    <div class='leftCell'>rose</div>
+    <div class='leftCell smallpad'>
+      Wind <span class='value'>0</span>  mph<br/>
+      Gust <span class='value'>0</span>  mph<br/>
+      Rain <span class='value'>0.00</span>  in/hr<br/>
+    </div>
+  </div>
+  <div class='bordered headerNoPad'>
+    <div class='leftCell smallpad'>
+      Sunrise <span class='value'>05:18</span><br/>
+      Sunset <span class='value'>18:59</span><br/>
+      Phase <span class='value'>new 3% full</span><br/>
+    </div>
+  </div>
+</div>
+
+
+<div class='tabPane'>
+  <div class='leftCell' style='width:10px'>&nbsp;</div>
+  <div id='hour' class='tab'><a id='hour-link' href='.'>Hour</a></div>
+  <div id='day' class='tab'><a id='day-link' href='.'>Day</a></div>
+  <div id='week' class='tab'><a id='week-link' href='.'>Week</a></div>
+  <div id='month' class='tab'><a id='month-link' href='.'>Month</a></div>
+  <div id='year' class='tab'><a id='year-link' href='.'>Year</a></div>
+  <div id='almanac' class='tab'><a href='almanac.html'>Almanac</a></div>
+  <div style='float:right; width:10px;'>&nbsp;</div>
+  <div id='button-tables' class='rightTab'><a id='button-tables-link' href='.'>Tables</a></div>
+  <div id='button-charts' class='rightTab'><a id='button-charts-link' href='.'>Charts</a></div>
+</div>
+
+<div id='charts'>
+  <div>
+    <div class='bordered cell graph' style='clear:both'>
+      <div class='leftCell'>Temperature and Dew Point</div><div class='units'>&#176;F</div>
+      <div><img id='img_inouttempdew' class='plot' src='favicon.ico'/></div>
+    </div>
+    <div class='bordered cell graph'>
+      <div class='leftCell'>Wind Chill / Heat Index</div><div class='units'>&#176;F</div>
+      <div><img id='img_tempchill' class='plot' src='favicon.ico'/></div>
+    </div>
+    <div class='bordered cell graph'>
+      <div class='leftCell'>Humidity</div><div class='units'>%</div>
+      <div><img id='img_inouthum' class='plot' src='favicon.ico'/></div>
+    </div>
+    <div class='bordered cell graph'>
+      <div class='leftCell'>Pressure</div><div class='units'> inHg</div>
+      <div><img id='img_barometer' class='plot' src='favicon.ico'/></div>
+    </div>
+  </div>
+  <div>
+    <div class='bordered cell graph' style='clear:both'>
+      <div class='leftCell'>Wind and Gusts</div><div class='units'> mph</div>
+      <div><img id='img_wind' class='plot' src='favicon.ico'/></div>
+    </div>
+    <div class='bordered cell graph'>
+      <div class='leftCell'>Wind Direction</div>
+      <div><img id='img_winddir' class='plot' src='favicon.ico'/></div>
+    </div>
+    <div class='bordered cell graph'>
+      <div class='leftCell'>Wind Vector</div>
+      <div><img id='img_windvec' class='plot' src='favicon.ico'/></div>
+    </div>
+  </div>
+  <div>
+    <div class='bordered cell graph' style='clear:both'>
+      <div class='leftCell'>Rain</div><div class='units'> in</div>
+      <div><img id='img_rain' class='plot' src='favicon.ico'/></div>
+    </div>
+  </div>
+  <div>
+    <div class='bordered cell graph' style='clear:both'>
+      <div class='leftCell'>Solar Radiation</div><div class='units'> W/m&#178;</div>
+      <div><img id='img_radiation' class='plot' src='favicon.ico'/></div>
+    </div>
+  </div>
+</div>
+
+<div class='wide bordered line cell' style='clear:both'>
+  <div class='leftCell'>
+    weewx: 0 days, 0 hours, 15 minutes - server: 0 days, 3 hours, 38 minutes - weewx 3.4.0 with FileParse - amphibian 0.11
+  </div>
+</div>
+
+    <script>
+      setURLs('hour','charts');
+    </script>
+  </body>
+</html>
+

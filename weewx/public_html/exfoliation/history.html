@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head profile="http://www.w3.org/2005/10/profile">
+    <!-- exfoliation for weewx - Copyright Matthew Wall -->
+    <meta name='viewport' content='width=device-width' />
+    <title>DDT, Sarov Weather History</title>
+    <link rel="stylesheet" type="text/css" href="exfoliation.css"/>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <style>
+.navigation {
+  padding-bottom: 15px;
+}
+.period {
+  font-size: 85%;
+  color: #207020;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #f0f0f0;
+  border: 1px solid #c0c0c0;
+  cursor: pointer;
+}
+.period_selected {
+  font-size: 85%;
+  color: #207020;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #b0d0d0;
+  border: 1px solid #c0c0c0;
+  cursor: pointer;
+}
+    </style>
+    <script>
+var periods = ['day','week','month','year'];
+function choose(id) {
+  for(var i=0; i<periods.length; i++) {
+    var c = document.getElementById('control_'+periods[i]);
+    if(c) c.className = (periods[i] == id) ? 'period_selected' : 'period';
+    var g = document.getElementById('graphs_'+periods[i]);
+    if(g) g.style.display = (periods[i] == id) ? 'block' : 'none';
+  }
+}
+    </script>
+  </head>
+
+  <body>
+
+<div id='header'>
+  
+  <div id='station_info'>
+    <span class='station_title'>DDT, Sarov</span><br/>
+    <span class='station_time'>04/09/2016 06:42:00 AM</span>
+  </div>
+  
+  <div id='navigation_controls'>
+    <a href='.'>Current</a>
+    <a href='history.html'>History</a>
+    <a href='almanac.html'>Almanac</a>
+    <a href='links.html'>Links</a>
+  </div>
+  
+</div>
+    <div id='content'>
+      <div id='data_table'>
+      <div class='navigation'>
+        <span class='period_selected' id='control_day' href="#" onclick="choose('day')">Day</span>
+        <span class='period' id='control_week' href="#" onclick="choose('week')">Week</span>
+        <span class='period' id='control_month' href="#" onclick="choose('month')">Month</span>
+        <span class='period' id='control_year' href="#" onclick="choose('year')">Year</span>
+      </div>
+
+<!-- hi/lo readings in tabular form -->
+
+<table class='metrics'>
+  <tr>
+    <td></td>
+    <td class="metric_title">Today</td>
+    <td class="metric_title">Month</td>
+    <td class="metric_title">Year</td>
+    <td></td>
+  </tr>
+
+  <!-- outside -->
+
+  <tr style='vertical-align:top'>
+    <td class="metric_name">High Temperature:</td>
+    <td><span class="metric_value">91.0</span><br>
+      <span class="hilo_time">06:40:09 AM</span></td>
+    <td><span class="metric_value">91.0</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td><span class="metric_value">91.0</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td class="metric_units">&#176;F</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">Low Temperature:</td>
+    <td><span class="metric_value">30.2</span><br>
+      <span class="hilo_time">06:34:20 AM</span></td>
+    <td><span class="metric_value">30.0</span><br>
+      <span class="hilo_time">04/04/2016</span></td>
+    <td><span class="metric_value">30.0</span><br>
+      <span class="hilo_time">04/04/2016</span></td>
+    <td class="metric_units">&#176;F</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">High Humidity:</td>
+    <td><span class="metric_value">100</span><br>
+      <span class="hilo_time">06:27:03 AM</span></td>
+    <td><span class="metric_value">100</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td><span class="metric_value">100</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td class="metric_units">%</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">Low Humidity:</td>
+    <td><span class="metric_value">32</span><br>
+      <span class="hilo_time">06:39:42 AM</span></td>
+    <td><span class="metric_value">30</span><br>
+      <span class="hilo_time">04/04/2016</span></td>
+    <td><span class="metric_value">30</span><br>
+      <span class="hilo_time">04/04/2016</span></td>
+    <td class="metric_units">%</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">High Dewpoint:</td>
+    <td><span class="metric_value">86.0</span><br>
+      <span class="hilo_time">06:27:01 AM</span></td>
+    <td><span class="metric_value">86.0</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td><span class="metric_value">86.0</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td class="metric_units">&#176;F</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">Low Dewpoint:</td>
+    <td><span class="metric_value">22.5</span><br>
+      <span class="hilo_time">04:50:00 AM</span></td>
+    <td><span class="metric_value">22.5</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td><span class="metric_value">22.5</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td class="metric_units">&#176;F</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">High Barometer:</td>
+    <td><span class="metric_value">1053.0</span><br>
+      <span class="hilo_time">03:03:51 AM</span></td>
+    <td><span class="metric_value">1053.0</span><br>
+      <span class="hilo_time">04/02/2016</span></td>
+    <td><span class="metric_value">1053.0</span><br>
+      <span class="hilo_time">03/04/2016</span></td>
+    <td class="metric_units"> mbar</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">Low Barometer:</td>
+    <td><span class="metric_value">990.7</span><br>
+      <span class="hilo_time">06:40:11 AM</span></td>
+    <td><span class="metric_value">990.7</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td><span class="metric_value">990.7</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td class="metric_units"> mbar</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">High Heat Index:</td>
+    <td><span class="metric_value">111.7</span><br>
+      <span class="hilo_time">06:27:01 AM</span></td>
+    <td><span class="metric_value">111.7</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td><span class="metric_value">111.7</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td class="metric_units">&#176;F</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">Low Wind Chill:</td>
+    <td><span class="metric_value">31.7</span><br>
+      <span class="hilo_time">03:27:59 AM</span></td>
+    <td><span class="metric_value">30.0</span><br>
+      <span class="hilo_time">04/04/2016</span></td>
+    <td><span class="metric_value">30.0</span><br>
+      <span class="hilo_time">04/04/2016</span></td>
+    <td class="metric_units">&#176;F</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">High Wind Speed:</td>
+    <td><span class="metric_value">50</span><br>
+      <span class="hilo_time">06:38:50 AM</span></td>
+    <td><span class="metric_value">50</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td><span class="metric_value">50</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td class="metric_units"> mph</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">Ave Wind Speed:</td>
+    <td><span class="metric_value">4</span></td>
+    <td><span class="metric_value">3</span></td>
+    <td><span class="metric_value">2</span></td>
+    <td class="metric_units"> mph</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">High Rain Rate:</td>
+    <td><span class="metric_value">0.00</span><br>
+      <span class="hilo_time">03:03:51 AM</span></td>
+    <td><span class="metric_value">0.08</span><br>
+      <span class="hilo_time">04/05/2016</span></td>
+    <td><span class="metric_value">0.08</span><br>
+      <span class="hilo_time">03/05/2016</span></td>
+    <td class="metric_units"> in/hr</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">Rain Total:</td>
+    <td><span class="metric_value">0.00</span><br></td>
+    <td><span class="metric_value">0.03</span></td>
+    <td><span class="metric_value">0.18</span></td>
+    <td class="metric_units"> in</td>
+  </tr>
+
+  <!-- inside -->
+
+  <tr><td>&nbsp;</td></tr>
+  <tr><td colspan='5' class='metric_name'>Inside</td></tr>
+
+  <tr style='vertical-align:top'>
+    <td class="metric_name">High Temperature:</td>
+    <td><span class="metric_value">81.5</span><br>
+      <span class="hilo_time">03:37:11 AM</span></td>
+    <td><span class="metric_value">81.5</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td><span class="metric_value">81.5</span><br>
+      <span class="hilo_time">04/09/2016</span></td>
+    <td class="metric_units">&#176;F</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">Low Temperature:</td>
+    <td><span class="metric_value">63.0</span><br>
+      <span class="hilo_time">03:03:51 AM</span></td>
+    <td><span class="metric_value">63.0</span><br>
+      <span class="hilo_time">04/02/2016</span></td>
+    <td><span class="metric_value">63.0</span><br>
+      <span class="hilo_time">03/04/2016</span></td>
+    <td class="metric_units">&#176;F</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">High Humidity:</td>
+    <td><span class="metric_value">30</span><br>
+      <span class="hilo_time">03:03:51 AM</span></td>
+    <td><span class="metric_value">30</span><br>
+      <span class="hilo_time">04/02/2016</span></td>
+    <td><span class="metric_value">30</span><br>
+      <span class="hilo_time">03/04/2016</span></td>
+    <td class="metric_units">%</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">Low Humidity:</td>
+    <td><span class="metric_value">30</span><br>
+      <span class="hilo_time">03:27:59 AM</span></td>
+    <td><span class="metric_value">10</span><br>
+      <span class="hilo_time">04/04/2016</span></td>
+    <td><span class="metric_value">10</span><br>
+      <span class="hilo_time">04/04/2016</span></td>
+    <td class="metric_units">%</td>
+  </tr>
+
+
+</table>
+      </div>
+      <div id='data_graphs'>
+
+      <div id='graphs_day' class='data_graphs'>
+        <img src="dayinouttempdew.png" alt="temperatures" />
+        <img src="dayinouthum.png" alt="humidity" />
+        <img src="daybarometer.png" alt="barometer"/>
+        <img src="daytempchill.png" alt="heatchill" />
+        <img src="daywind.png" alt="wind" />
+        <img src="daywinddir.png" alt="wind direction" />
+        <img src="daywindvec.png" alt="wind vectors" />
+        <img src="dayrain.png" alt="rain" />
+        <img src="dayradiation.png" alt="radiation" />
+        <img src="dayuv.png" alt="uv" />
+      </div>
+
+      <div id='graphs_week' class='data_graphs' style='display:none'>
+        <img src="weekinouttempdew.png" alt="temperatures" />
+        <img src="weekinouthum.png" alt="humidity" />
+        <img src="weekbarometer.png" alt="barometer"/>
+        <img src="weektempchill.png" alt="heatchill" />
+        <img src="weekwind.png" alt="wind" />
+        <img src="weekwinddir.png" alt="wind direction" />
+        <img src="weekwindvec.png" alt="wind vectors" />
+        <img src="weekrain.png" alt="rain" />
+        <img src="weekradiation.png" alt="radiation" />
+        <img src="weekuv.png" alt="uv" />
+      </div>
+
+      <div id='graphs_month' class='data_graphs' style='display:none'>
+        <img src="monthinouttempdew.png" alt="temperatures" />
+        <img src="monthinouthum.png" alt="humidity" />
+        <img src="monthbarometer.png" alt="barometer"/>
+        <img src="monthtempchill.png" alt="heatchill" />
+        <img src="monthwind.png" alt="wind" />
+        <img src="monthwinddir.png" alt="wind direction" />
+        <img src="monthwindvec.png" alt="wind vectors" />
+        <img src="monthrain.png" alt="rain" />
+        <img src="monthradiation.png" alt="radiation" />
+        <img src="monthuv.png" alt="uv" />
+      </div>
+
+      <div id='graphs_year' class='data_graphs' style='display:none'>
+        <img src="yearinouttempdew.png" alt="temperatures" />
+        <img src="yearinouthum.png" alt="humidity" />
+        <img src="yearbarometer.png" alt="barometer"/>
+        <img src="yeartempchill.png" alt="heatchill" />
+        <img src="yearwind.png" alt="wind" />
+        <img src="yearwinddir.png" alt="wind direction" />
+        <img src="yearwindvec.png" alt="wind vectors" />
+        <img src="yearrain.png" alt="rain" />
+        <img src="yearradiation.png" alt="radiation" />
+        <img src="yearuv.png" alt="uv" />
+      </div>
+
+      </div>
+    </div>
+
+<div id='footer'>
+  <p>
+    weewx: 0 days, 0 hours, 16 minutes<br/>
+    server: 0 days, 3 hours, 39 minutes<br/>
+    weewx 3.4.0 with FileParse and exfoliation 0.35<br/>
+  </p>
+</div>
+
+  </body>
+</html>
+

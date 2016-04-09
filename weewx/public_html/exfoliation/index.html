@@ -1,0 +1,269 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head profile='http://www.w3.org/2005/10/profile'>
+    <!-- exfoliation for weewx - Copyright Matthew Wall -->
+    <meta name='viewport' content='width=device-width' />
+    <title>DDT, Sarov Current Weather Conditions</title>
+    <link rel='stylesheet' type='text/css' href='exfoliation.css'/>
+    <link rel='icon' type='image/png' href='favicon.ico' />
+    <style>
+      .heatindex {
+        color: #aa4444;
+      }
+      .windchill {
+        color: #4444aa;
+      }
+      .temphi {
+        color: #aa4444;
+      }
+      .templo {
+        color: #4444aa;
+      }
+      .precip-img {
+        width: 32px;
+      }
+      .obvis-img {
+        width: 32px;
+      }
+      .pop-img {
+        width: 8px;
+      }
+      .table_heading {
+        font-size: 80%;
+        color: #888888;
+        border-bottom: 1px solid #cccccc;
+        padding-top: 20px;
+      }
+      .radar {
+        border: none;
+        width: 280px;
+        padding: 2px;
+      }
+      .zambretti {
+        font-size: 80%;
+      }
+    </style>
+    <script type='text/javascript' src='exfoliation.js'></script>
+    <script>
+      window.onload = function() { applypopups(); }
+    </script>
+  </head>
+
+  <body>
+
+<div id='header'>
+  
+  <div id='station_info'>
+    <span class='station_title'>DDT, Sarov</span><br/>
+    <span class='station_time'>04/09/2016 06:42:00 AM</span>
+  </div>
+  
+  <div id='navigation_controls'>
+    <a href='.'>Current</a>
+    <a href='history.html'>History</a>
+    <a href='almanac.html'>Almanac</a>
+    <a href='links.html'>Links</a>
+  </div>
+  
+</div>
+
+
+  <div id='content'>
+
+<div id='popupanchor' style='position:absolute; left:350px; top:80px;'></div>
+
+<div style='float:left; padding-right: 50px;'>
+
+<table class='metrics' width='100%'>
+  <tr>
+    <td></td>
+    <td class='table_heading' colspan="2">ACTUAL</td>
+    <td class='table_heading'>HI/LO</td>
+    <td></td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>Temperature</td>
+    <td class='metric_large'><a href='dayouttemphilo.png' class='popup'>82.7</a></td>
+    <td class='metric_value'><a href='daytempchill.png' class='popup'><span class='heatindex'>82.7</span><br/><span class='windchill'>82.7</span></a></td>
+    <td class='metric_value'>
+      <span title='06:40:09 AM'>91.0</span><br/>
+      <span title='06:34:20 AM'>30.2</span></td>
+    <td class='metric_units'>&#176;F</td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>Humidity</td>
+    <td class='metric_large' colspan='2' >
+      <a href='dayouthum.png' class='popup'>42</a>
+    </td>
+    <td class='metric_value'>
+      <span title='06:27:03 AM'>100</span><br/>
+      <span title='06:39:42 AM'>32</span></td>
+    <td class='metric_units'>%</td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>Dewpoint</td>
+    <td class='metric_large' colspan='2' ><a href='dayouttempdew.png' class='popup'>57.6</a></td>
+    <td class='metric_value'>
+      <span title='06:27:01 AM'>86.0</span><br/>
+      <span title='04:50:00 AM'>22.5</span></td>
+    <td class='metric_units'>&#176;F</td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>Barometer</td>
+    <td class='metric_large' colspan='2' ><a href='daybarometer.png' class='popup'>998.6</a></td>
+    <td class='metric_value'>
+      <span title='03:03:51 AM'>1053.0</span><br/>
+      <span title='06:40:11 AM'>990.7</span></td>
+    <td class='metric_units'> mbar<br/>
+            &#8681;
+
+    </td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>Wind</td>
+    <td class='metric_large' colspan='2' >
+      <table cellspacing='0' cellpadding='0'><tr>
+      <td><a href='daywind.png' class='popup'>0</a>
+      </td>
+      <td style='font-size:50%;padding-left:8px;'>
+      <a href='daywinddir.png' class='popup'>-<br/><span style='font-size:90%'>     -</span></a>
+      </td>
+      <td style='padding-left:8px;'>
+      <a href='daywindvec.png' class='popup'>
+              -
+
+      </a>
+      </td>
+      </tr></table>
+    </td>
+    <td>
+      <span class='metric_value' title='maximum wind speed at 06:38:50 AM'>50</span><br/>
+      <span class='metric_value' title='average wind speed'>4</span> avg
+    </td>
+    <td class='metric_units'> mph<br/>
+    </td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>Precipitation</td>
+    <td class='metric_large' colspan='2' >
+      <span title='rainfall within the past few minutes'><a href='dayrain.png' class='popup'>     -</a></span>
+    </td>
+    <td class='metric_value'>
+      <span title='maximum rain rate this day at 03:03:51 AM'>0.00</span><br/>
+      <span title='total rainfall this day'>0.00</span>
+    </td>
+    <td class='metric_units'>
+       in/hr<br/>
+       in
+    </td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>UV Index</td>
+    <td class='metric_large' colspan='2' >
+      <span title='UV Index'><a href='dayuv.png' class='popup'>     -</a></span>
+    </td>
+    <td class='metric_value'>
+      <span title='03:03:51 AM'>0.0</span><br/>
+      <span title='03:03:51 AM'>0.0</span>
+    </td>
+    <td></td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>Solar Radiation</td>
+    <td class='metric_large' colspan='2' >
+      <span title='Solar Radiation'><a href='dayradiation.png' class='popup'>     -</a></span>
+    </td>
+    <td class='metric_value'>
+      <span title='03:03:51 AM'>0</span>
+    </td>
+    <td class='metric_units'> W/m&#178;</td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>Temperature<br/>Inside</td>
+    <td class='metric_large' colspan='2' >
+      <a href='dayintemphilo.png' class='popup'>     -</a>
+    </td>
+    <td class='metric_value'>
+      <span title='03:37:11 AM'>81.5</span><br/>
+      <span title='03:03:51 AM'>63.0</span>
+    </td>
+    <td class='metric_units'>&#176;F</td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>Humidity<br/>Inside</td>
+    <td class='metric_large' colspan='2' >
+      <a href='dayinhum.png' class='popup'>     -</a>
+    </td>
+    <td class='metric_value'>
+      <span title='03:03:51 AM'>30</span><br/>
+      <span title='03:27:59 AM'>30</span>
+    </td>
+    <td class='metric_units'>%</td>
+  </tr>
+</table>
+
+</div>
+
+<div style='float:left; padding-right: 50px;'>
+
+
+<table class='metrics' width='100%'>
+  <tr>
+    <td class='table_heading' colspan="4">CELESTIAL</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>Sunrise</td>
+    <td class='metric_value'>05:18:18 AM</td>
+    <td class='metric_name'>New</td>
+    <td class='metric_value'>3 %</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class='metric_name'>Sunset</td>
+    <td class='metric_value'>06:59:10 PM</td>
+  </tr>
+</table>
+
+
+
+
+
+</div>
+
+<div style='float:left; padding-right: 50px;'>
+
+
+<p><a  href='http://radar.weather.gov/ridge/lite/N0R/BOX_loop.gif'><img class='radar' src='http://radar.weather.gov/ridge/lite/N0R/BOX_loop.gif' alt='radar'/></a></p>
+
+
+</div>
+
+  </div>
+
+
+<div id='footer'>
+  <p>
+    weewx: 0 days, 0 hours, 15 minutes<br/>
+    server: 0 days, 3 hours, 39 minutes<br/>
+    weewx 3.4.0 with FileParse and exfoliation 0.35<br/>
+  </p>
+</div>
+
+
+  </body>
+</html>
+

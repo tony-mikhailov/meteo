@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <title>Barometer in Tony's dev PWS, Sarov</title>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div data-role="page" data-add-back-btn="true" data-theme="a">
+    <div data-role="header">
+      <h1>Barometer</h1>
+   </div>
+   <div data-role="content">
+     <h4>24h barometer</h4>
+     <img src="../daybarometer.png"/>
+     <ul>
+       <li>Today's min: 1053.0 mbar at 02:34:00 AM</li>
+       <li>Today's max: 1053.0 mbar at 12:00:07 AM</li>
+     </ul>
+
+     <h4>7-day barometer</h4>
+     <img src="../weekbarometer.png" />
+     <ul>
+       <li>This week's min: 1052.9 mbar at 11:51:58 PM (Friday)</li>
+       <li>This week's max: 1053.0 mbar at 10:42:38 PM (Friday)</li>
+     </ul>
+    </div>
+    <div data-role="footer">
+      <h4>weewx v 3.4.0</h4>
+    </div>
+  </div>
+</body>
+

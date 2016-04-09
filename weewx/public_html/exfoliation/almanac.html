@@ -1,0 +1,693 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head profile="http://www.w3.org/2005/10/profile">
+    <!-- exfoliation for weewx - Copyright Matthew Wall -->
+    <meta name='viewport' content='width=device-width' />
+    <title>DDT, Sarov Almanac</title>
+    <link rel="stylesheet" type="text/css" href="exfoliation.css"/>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <style>
+      .selectors {
+        clear: right;
+        float: right;
+        text-align: right;
+      }
+    </style>
+    <script type="text/javascript">
+      function openURL(urlname) {
+        window.location = urlname;
+      }
+      function openNoaaFile(date) {
+        window.location = "NOAA/NOAA-" + date + ".txt";
+      }
+    </script>
+  </head>
+
+  <body>
+
+<div id='header'>
+  
+  <div id='station_info'>
+    <span class='station_title'>DDT, Sarov</span><br/>
+    <span class='station_time'>04/09/2016 06:42:00 AM</span>
+  </div>
+  
+  <div id='navigation_controls'>
+    <a href='.'>Current</a>
+    <a href='history.html'>History</a>
+    <a href='almanac.html'>Almanac</a>
+    <a href='links.html'>Links</a>
+  </div>
+  
+</div>
+
+    <div class='selectors'>
+      <p>Monthly Summary:&nbsp;
+        <select NAME=noaaselect onchange="openNoaaFile(value)">
+          <option value="2016-03">2016-03</option>
+          <option value="2016-04">2016-04</option>
+	  <option selected>-Select month-</option>
+        </select>
+        <br/>
+        Yearly Summary:&nbsp;
+        <select NAME=noaaselect onchange="openNoaaFile(value)">
+          <option value="2016">2016</option>
+	  <option selected>-Select year-</option>
+        </select>
+      </p>
+    </div>
+
+    <div id='observation_title'>
+      <p>Almanac Data</p>
+    </div>
+
+    <div id='content'>
+
+<table class='metrics'>
+  <tr style='vertical-align:top'>
+    <td>
+
+<table>
+  <tr>
+    <td class="metric_name">Station:</td>
+    <td><span class="metric_value">DDT, Sarov</span></td>
+  </tr>
+  <tr>
+    <td class="metric_name">Time:</td>
+    <td><span class="metric_value">06:42</span></td>
+  </tr>
+  <tr>
+    <td class="metric_name">Date:</td>
+    <td><span class="metric_value">09 Apr 2016</span></td>
+  </tr>
+  <tr>
+    <td class="metric_name">Latitude:</td>
+    <td><span class="metric_value">54&deg; 33.60' N</span></td>
+  </tr>
+  <tr>
+    <td class="metric_name">Longitude:</td>
+    <td><span class="metric_value">043&deg; 11.40' E</span></td>
+  </tr>
+  <tr>
+    <td class="metric_name">Elevation:</td>
+    <td><span class="metric_value">502 feet</span></td>
+  </tr>
+</table>
+
+    </td>
+    <td>&nbsp;</td>
+    <td>
+
+<table>
+  <tr><td class='metric_title'>Sun and Moon</td><td></td></tr>
+  <tr>
+    <td class="metric_name">Sunrise:</td>
+    <td class="metric_value">05:18:18 AM</td>
+  </tr>
+  <tr>
+    <td class="metric_name">Sunset:</td>
+    <td class="metric_value">06:59:10 PM</td>
+  </tr>
+  <tr style='vertical-align:top'>
+    <td class="metric_name">Moon Phase:</td>
+    <td><span class="metric_value">New</span><br/><span class='metric_hilo'>3% full</span></td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+
+<table class='metrics'>
+  <tr>
+    <td class="metric_title">Temperature (&#176;F)</td>
+    <td width="20"></td>
+    <td class="metric_title">Humidity (%)</td>
+    <td width="20"></td>
+    <td class="metric_title">Dew Point (&#176;F)</td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td>
+      <table>
+        <tr>
+          <td class="metric_name">Current:</td>
+          <td><span class="metric_value">82.7</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Average:</td>
+          <td><span class="metric_value">54.0</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day High:</td>
+          <td><span class="metric_value">91.0</span><span class="hilo_time">&nbsp;at&nbsp;06:40:09 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Low:</td>
+          <td><span class="metric_value">30.2</span><span class="hilo_time">&nbsp;at&nbsp;06:34:20 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Average:</td>
+          <td><span class="metric_value">50.9</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week High:</td>
+          <td><span class="metric_value">91.0</span><span class="hilo_time">&nbsp;at&nbsp;06:40:09 AM Saturday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Low:</td>
+          <td><span class="metric_value">30.0</span><span class="hilo_time">&nbsp;at&nbsp;07:55:16 AM Monday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Average:</td>
+          <td><span class="metric_value">50.2</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month High:</td>
+          <td><span class="metric_value">91.0</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Low:</td>
+          <td><span class="metric_value">30.0</span><span class="hilo_time">&nbsp;on&nbsp;04/04/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Average:</td>
+          <td><span class="metric_value">45.4</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year High:</td>
+          <td><span class="metric_value">91.0</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Low:</td>
+          <td><span class="metric_value">30.0</span><span class="hilo_time">&nbsp;on&nbsp;04/04/2016</span></td>
+        </tr>
+      </table>
+    </td>
+
+    <td></td>
+
+    <td>
+      <table>
+        <tr>
+          <td class="metric_name">Current:</td>
+          <td><span class="metric_value">42</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Average:</td>
+          <td><span class="metric_value">51</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day High:</td>
+          <td><span class="metric_value">100</span><span class="hilo_time">&nbsp;at&nbsp;06:27:03 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Low:</td>
+          <td><span class="metric_value">32</span><span class="hilo_time">&nbsp;at&nbsp;06:39:42 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Average:</td>
+          <td><span class="metric_value">60</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week High:</td>
+          <td><span class="metric_value">100</span><span class="hilo_time">&nbsp;at&nbsp;06:27:03 AM Saturday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Low:</td>
+          <td><span class="metric_value">30</span><span class="hilo_time">&nbsp;at&nbsp;11:31:59 PM Monday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Average:</td>
+          <td><span class="metric_value">61</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month High:</td>
+          <td><span class="metric_value">100</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Low:</td>
+          <td><span class="metric_value">30</span><span class="hilo_time">&nbsp;on&nbsp;04/04/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Average:</td>
+          <td><span class="metric_value">66</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year High:</td>
+          <td><span class="metric_value">100</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Low:</td>
+          <td><span class="metric_value">30</span><span class="hilo_time">&nbsp;on&nbsp;04/04/2016</span></td>
+        </tr>
+      </table>
+    </td>
+
+    <td></td>
+
+    <td>
+      <table>
+        <tr>
+          <td class="metric_name">Current:</td>
+          <td><span class="metric_value">57.6</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Average:</td>
+          <td><span class="metric_value">34.8</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day High:</td>
+          <td><span class="metric_value">86.0</span><span class="hilo_time">&nbsp;at&nbsp;06:27:01 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Low:</td>
+          <td><span class="metric_value">22.5</span><span class="hilo_time">&nbsp;at&nbsp;04:50:00 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Average:</td>
+          <td><span class="metric_value">36.0</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week High:</td>
+          <td><span class="metric_value">86.0</span><span class="hilo_time">&nbsp;at&nbsp;06:27:01 AM Saturday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Low:</td>
+          <td><span class="metric_value">22.5</span><span class="hilo_time">&nbsp;at&nbsp;04:50:00 AM Saturday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Average:</td>
+          <td><span class="metric_value">36.0</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month High:</td>
+          <td><span class="metric_value">86.0</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Low:</td>
+          <td><span class="metric_value">22.5</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Average:</td>
+          <td><span class="metric_value">33.2</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year High:</td>
+          <td><span class="metric_value">86.0</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Low:</td>
+          <td><span class="metric_value">22.5</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td class="metric_title">Wind Chill (&#176;F)</td>
+    <td></td>
+    <td class="metric_title">Heat Index (&#176;F)</td>
+    <td></td>
+    <td class="metric_title">Barometer ( mbar)</td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td>
+      <table>
+        <tr>
+          <td class="metric_name">Current:</td>
+          <td><span class="metric_value">82.7</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Low:</td>
+          <td><span class="metric_value">31.7</span><span class="hilo_time">&nbsp;at&nbsp;03:27:59 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Low:</td>
+          <td><span class="metric_value">30.0</span><span class="hilo_time">&nbsp;at&nbsp;07:55:16 AM Monday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Low:</td>
+          <td><span class="metric_value">30.0</span><span class="hilo_time">&nbsp;on&nbsp;04/04/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Low:</td>
+          <td><span class="metric_value">30.0</span><span class="hilo_time">&nbsp;on&nbsp;04/04/2016</span></td>
+        </tr>
+      </table>
+    </td>
+
+    <td></td>
+
+    <td>
+      <table>
+        <tr>
+          <td class="metric_name">Current:</td>
+          <td><span class="metric_value">82.7</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day High:</td>
+          <td><span class="metric_value">111.7</span><span class="hilo_time">&nbsp;at&nbsp;06:27:01 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week High:</td>
+          <td><span class="metric_value">111.7</span><span class="hilo_time">&nbsp;at&nbsp;06:27:01 AM Saturday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month High:</td>
+          <td><span class="metric_value">111.7</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year High:</td>
+          <td><span class="metric_value">111.7</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+      </table>
+    </td>
+
+    <td></td>
+
+    <td rowspan='4'>
+      <table>
+        <tr>
+          <td class="metric_name">Current:</td>
+          <td><span class="metric_value">998.6</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Average:</td>
+          <td><span class="metric_value">1018.5</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day High:</td>
+          <td><span class="metric_value">1053.0</span><span class="hilo_time">&nbsp;at&nbsp;03:03:51 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Low:</td>
+          <td><span class="metric_value">990.7</span><span class="hilo_time">&nbsp;at&nbsp;06:40:11 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Average:</td>
+          <td><span class="metric_value">1030.0</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week High:</td>
+          <td><span class="metric_value">1053.0</span><span class="hilo_time">&nbsp;at&nbsp;05:55:19 AM Monday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Low:</td>
+          <td><span class="metric_value">990.7</span><span class="hilo_time">&nbsp;at&nbsp;06:40:11 AM Saturday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Average:</td>
+          <td><span class="metric_value">1030.8</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month High:</td>
+          <td><span class="metric_value">1053.0</span><span class="hilo_time">&nbsp;on&nbsp;04/02/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Low:</td>
+          <td><span class="metric_value">990.7</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Average:</td>
+          <td><span class="metric_value">1036.6</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year High:</td>
+          <td><span class="metric_value">1053.0</span><span class="hilo_time">&nbsp;on&nbsp;03/04/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Low:</td>
+          <td><span class="metric_value">990.7</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td class="metric_title">Wind ( mph)</td>
+    <td></td>
+    <td class="metric_title">Rain ( in -  in/hr)</td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td>
+      <table>
+        <tr>
+          <td class="metric_name">Current:</td>
+          <td><span class="metric_value">0 -</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Average:</td>
+          <td><span class="metric_value">4 N</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day High:</td>
+          <td><span class="metric_value">50</span><span class="hilo_time">&nbsp;at&nbsp;06:38:50 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Average:</td>
+          <td><span class="metric_value">3 SE</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week High:</td>
+          <td><span class="metric_value">50</span><span class="hilo_time">&nbsp;at&nbsp;06:38:50 AM Saturday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Average:</td>
+          <td><span class="metric_value">3 SE</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month High:</td>
+          <td><span class="metric_value">50</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Average:</td>
+          <td><span class="metric_value">2 SE</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year High:</td>
+          <td><span class="metric_value">50</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+      </table>
+    </td>
+
+    <td></td>
+
+    <td>
+      <table>
+        <tr>
+          <td class="metric_name">Rate:</td>
+          <td><span class="metric_value">0.00</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day:</td>
+          <td><span class="metric_value">0.00</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day High Rate:</td>
+          <td><span class="metric_value">0.00</span><span class="hilo_time">&nbsp;at&nbsp;03:03:51 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week:</td>
+          <td><span class="metric_value">0.03</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week High Rate:</td>
+          <td><span class="metric_value">0.08</span><span class="hilo_time">&nbsp;at&nbsp;01:06:46 AM Tuesday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month:</td>
+          <td><span class="metric_value">0.03</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month High Rate:</td>
+          <td><span class="metric_value">0.08</span><span class="hilo_time">&nbsp;on&nbsp;04/05/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year:</td>
+          <td><span class="metric_value">0.18</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year High Rate:</td>
+          <td><span class="metric_value">0.08</span><span class="hilo_time">&nbsp;on&nbsp;03/05/2016</span></td>
+        </tr>
+      </table>
+    </td>
+
+    <td></td>
+
+    <td></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td class="metric_title">Inside Temperature (&#176;F)</td>
+    <td width="20"></td>
+    <td class="metric_title">Inside Humidity (&#176;F)</td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr style='vertical-align:top'>
+    <td>
+      <table>
+        <tr>
+          <td class="metric_name">Current:</td>
+          <td><span class="metric_value">     -</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Average:</td>
+          <td><span class="metric_value">70.2</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day High:</td>
+          <td><span class="metric_value">81.5</span><span class="hilo_time">&nbsp;at&nbsp;03:37:11 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Low:</td>
+          <td><span class="metric_value">63.0</span><span class="hilo_time">&nbsp;at&nbsp;03:03:51 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Average:</td>
+          <td><span class="metric_value">68.9</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week High:</td>
+          <td><span class="metric_value">81.5</span><span class="hilo_time">&nbsp;at&nbsp;03:37:11 AM Saturday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Low:</td>
+          <td><span class="metric_value">63.0</span><span class="hilo_time">&nbsp;at&nbsp;05:55:19 AM Monday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Average:</td>
+          <td><span class="metric_value">68.7</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month High:</td>
+          <td><span class="metric_value">81.5</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Low:</td>
+          <td><span class="metric_value">63.0</span><span class="hilo_time">&nbsp;on&nbsp;04/02/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Average:</td>
+          <td><span class="metric_value">67.2</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year High:</td>
+          <td><span class="metric_value">81.5</span><span class="hilo_time">&nbsp;on&nbsp;04/09/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Low:</td>
+          <td><span class="metric_value">63.0</span><span class="hilo_time">&nbsp;on&nbsp;03/04/2016</span></td>
+        </tr>
+      </table>
+    </td>
+
+    <td></td>
+
+    <td>
+      <table>
+        <tr>
+          <td class="metric_name">Current:</td>
+          <td><span class="metric_value">     -</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Average:</td>
+          <td><span class="metric_value">30</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day High:</td>
+          <td><span class="metric_value">30</span><span class="hilo_time">&nbsp;at&nbsp;03:03:51 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Day Low:</td>
+          <td><span class="metric_value">30</span><span class="hilo_time">&nbsp;at&nbsp;03:27:59 AM</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Average:</td>
+          <td><span class="metric_value">19</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week High:</td>
+          <td><span class="metric_value">30</span><span class="hilo_time">&nbsp;at&nbsp;05:55:19 AM Monday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Week Low:</td>
+          <td><span class="metric_value">10</span><span class="hilo_time">&nbsp;at&nbsp;05:55:16 PM Monday</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Average:</td>
+          <td><span class="metric_value">19</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month High:</td>
+          <td><span class="metric_value">30</span><span class="hilo_time">&nbsp;on&nbsp;04/02/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Month Low:</td>
+          <td><span class="metric_value">10</span><span class="hilo_time">&nbsp;on&nbsp;04/04/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Average:</td>
+          <td><span class="metric_value">22</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year High:</td>
+          <td><span class="metric_value">30</span><span class="hilo_time">&nbsp;on&nbsp;03/04/2016</span></td>
+        </tr>
+        <tr>
+          <td class="metric_name">Year Low:</td>
+          <td><span class="metric_value">10</span><span class="hilo_time">&nbsp;on&nbsp;04/04/2016</span></td>
+        </tr>
+      </table>
+    </td>
+
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+    </div>
+
+<div id='footer'>
+  <p>
+    weewx: 0 days, 0 hours, 16 minutes<br/>
+    server: 0 days, 3 hours, 39 minutes<br/>
+    weewx 3.4.0 with FileParse and exfoliation 0.35<br/>
+  </p>
+</div>
+
+  </body>
+</html>
+

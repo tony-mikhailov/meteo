@@ -57,6 +57,7 @@ def checkQueue():
                     rps = msg.split(' ')[5]
                     a0 = msg.split(' ')[11]
                     a0f = float(a0)
+                    #a0f = 512
                     windDir = 1.5 + (358.5 - 1.5)  * (a0f - 500.0) / (1012.0 - 500.0);
                     P = msg.split(' ')[13]
                     H = msg.split(' ')[15]
@@ -66,13 +67,15 @@ def checkQueue():
                     print "barometer=" + str(P)
                     print "outHumidity=" + str(H)
                     print "windSpeed=" + str(windSpeed)
-                    print "windDir=" + str(windDir)
-                    f = open('datafile', 'w')
+                    print "windDir=" + str(int(windDir))
+                    f = open('/var/tmp/datafile', 'w')
+                    
+                    f.write("usUnits=17\n")
                     f.write("outTemp=" + str(T) + '\n')
                     f.write("barometer=" + str(P) + '\n')
                     f.write("outHumidity=" + str(H) + '\n')
                     f.write("windSpeed=" + str(windSpeed) + '\n')
-                    f.write("windDir=" + str(windDir) + '\n')
+                    f.write("windDir=" + str(int(windDir)) + '\n')
  
 		for c in clients:
 			c.write_message(message)

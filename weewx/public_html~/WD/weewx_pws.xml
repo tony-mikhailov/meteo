@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<maintag>
+<!--MISC-->
+<misc><misc data="station_location">Tony's dev PWS, Sarov</misc></misc>
+<!--STATION DATA-->
+<realtime><data realtime="station_date">Sun, 06 Mar 2016</data></realtime>
+<realtime><data realtime="station_time">04:11 MSK</data></realtime>
+<realtime><data realtime="sunrise">06:43:10 AM</data></realtime>
+<realtime><data realtime="sunset">05:53:39 PM<!--sunsetTime--></data></realtime>
+<realtime><data realtime="moonrise">  <!--moonriseTime--></data></realtime>
+<realtime><data realtime="moonset">  <!--moonsetTime--></data></realtime>
+<!--TEMPERATURE-->
+<realtime><data realtime="temp">-0.6<!--outsideTemp--></data></realtime>
+<realtime><data realtime="high_temp">0.4<!--hiOutsideTemp--></data></realtime>
+<realtime><data realtime="low_temp">-0.6<!--lowOutsideTemp--></data></realtime>
+<realtime><data realtime="heatindex">-0.6<!--outsideHeatIndex--></data></realtime>
+<realtime><data realtime="high_heatindex">0.4<!--hiHeatindex--></data></realtime>
+<!--HUMIDITY-->
+<realtime><data realtime="hum">80<!--outsideHumidity--></data></realtime>
+<realtime><data realtime="high_hum">80<!--hiHumidity--></data></realtime>
+<realtime><data realtime="low_hum">80<!--lowHumidity--></data></realtime>
+<!--WIND-->
+<realtime><data realtime="winddir" misc="imgwinddir">N<!--windDirection--></data></realtime>
+<realtime><data realtime="windspeed">0<!--windSpeed--></data></realtime>
+<realtime><data realtime="high_windspeed">0<!--hiWindSpeed--></data></realtime>
+<realtime><data realtime="windchill">-0.6<!--windChill--></data></realtime>
+<realtime><data realtime="low_windchill">-0.6<!--lowWindchill--></data></realtime>
+<!--DEWPOINT-->
+<realtime><data realtime="dew">-3.7<!--outsideDewPt--></data></realtime>
+<realtime><data realtime="high_dew">-2.7<!--hiDewpoint--></data></realtime>
+<realtime><data realtime="low_dew">-3.7<!--lowDewpoint--></data></realtime>
+<!--BAROMETER-->
+<realtime><data realtime="barometer">1052.8<!--barometer--></data></realtime>
+<realtime><data realtime="changebarometer">-0.2<!--hourchangebarom--></data></realtime>
+<realtime><data realtime="high_barometer">1053.0<!--hiBarometer--></data></realtime>
+<realtime><data realtime="low_barometer">1052.8<!--lowBarometer--></data></realtime>
+<!--RAIN-->
+<realtime><data realtime="todaysrain">1.0<!--dailyRain--></data></realtime>
+<realtime><data realtime="rain_rate">0.0<!--rainRate--></data></realtime>
+<realtime><data realtime="high_rain_rate">2.0<!--hiRainRate--></data></realtime>
+<realtime><data realtime="storm_rate">1.0<!--dailyRain--></data></realtime>
+<!--UNITS-->
+<realtime><data units="windunit">km/h<!--windUnit--></data></realtime>
+<realtime><data units="rainunit">mm<!--rainUnit--></data></realtime>
+<realtime><data units="rateunit">mm/hr<!--rateUnit--></data></realtime>
+<realtime><data units="barunit">hPa<!--barUnit--></data></realtime>
+<realtime><data units="tempunit">C<!--tempUnit--></data></realtime>
+<realtime><data units="humunit">%<!--humUnit--></data></realtime>
+</maintag>

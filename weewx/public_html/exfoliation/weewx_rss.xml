@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<rss version="2.0" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" >
+  <channel>
+    <title>DDT, Sarov Weather Conditions</title>
+    <link></link>
+    <description>Current conditions, and daily, monthly, and yearly summaries</description>
+    <language>en-us</language>
+    <pubDate>Sat, 09 Apr 2016 06:42:00 MSK</pubDate>
+
+    <lastBuildDate>Sat, 09 Apr 2016 06:42:00 MSK</lastBuildDate>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <generator>weewx 3.4.0</generator>
+    <ttl>1.000000 minute</ttl>
+    
+    <item>
+      <title>Weather Conditions at 04/09/2016 06:42:00 AM</title>
+      <link>/index.html</link>
+      <description>
+        Outside temperature: 82.7&#176;F; 
+        Barometer: 998.6 mbar; 
+        Wind: 0 mph from      -; 
+        Rain rate: 0.00 in/hr; 
+        Inside temperature:      -
+      </description>
+      <pubDate>Sat, 09 Apr 2016 06:42:00 MSK</pubDate>
+      <geo:lat>54.56</geo:lat>
+      <geo:long>43.19</geo:long>
+      <content:encoded><![CDATA[
+      <p>
+      Time:                04/09/2016 06:42:00 AM<br/>
+      Outside Temperature: 82.7&#176;F<br/>
+      Inside Temperature:       -<br/>
+      Wind Chill:          82.7&#176;F<br/>
+      Heat Index:          82.7&#176;F<br/>
+      Dewpoint:            57.6&#176;F<br/>
+      Humidity:            42%<br/>
+      Barometer:           998.6 mbar<br/>
+      Wind:                0 mph from      -<br/>
+      Rain Rate:           0.00 in/hr<br/>
+      </p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Daily Weather Summary as of 04/09/2016 06:42:00 AM</title>
+      <link>/index.html</link>
+      <description>
+        Min outside temperature: 30.2&#176;F at 06:34:20 AM;
+        Max outside temperature: 91.0&#176;F at 06:40:09 AM;
+        Min inside temperature:  63.0&#176;F at 03:03:51 AM;
+        Max inside temperature:  81.5&#176;F at 03:37:11 AM;
+        Min barometer:           990.7 mbar at 06:40:11 AM;
+        Max barometer:           1053.0 mbar at 03:03:51 AM;
+        Max wind :               50 mph from 9&#176; at 06:38:50 AM;
+        Rain today:              0.00 in
+      </description>
+      <pubDate>Sat, 09 Apr 2016 06:42:00 MSK</pubDate>
+      <geo:lat>54.56</geo:lat>
+      <geo:long>43.19</geo:long>
+      <content:encoded><![CDATA[
+      <p>
+      Day:                     09 Apr 2016<br/>
+      Min Outside Temperature: 30.2&#176;F at 06:34:20 AM<br/>
+      Max Outside Temperature: 91.0&#176;F at 06:40:09 AM<br/>
+      Min Inside Temperature:  63.0&#176;F at 03:03:51 AM<br/>
+      Max Inside Temperature:  81.5&#176;F at 03:37:11 AM<br/>
+      Min Barometer:           990.7 mbar at 06:40:11 AM<br/>
+      Max Barometer:           1053.0 mbar at 03:03:51 AM<br/>
+      Max Wind :               50 mph from 9&#176; at 06:38:50 AM<br/>
+      Rain today:              0.00 in<br/>
+      </p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Monthly Weather Summary as of 04/09/2016 06:42:00 AM</title>
+      <link>/month.html</link>
+      <description>
+        Min outside temperature: 30.0&#176;F at 04/04/2016;
+        Max outside temperature: 91.0&#176;F at 04/09/2016;
+        Min inside temperature:  63.0&#176;F at 04/02/2016;
+        Max inside temperature:  81.5&#176;F at 04/09/2016;
+        Min barometer:           990.7 mbar at 04/09/2016;
+        Max barometer:           1053.0 mbar at 04/02/2016;
+        Max wind :               50 mph from 9&#176; at 04/09/2016;
+        Rain total for month:    0.03 in
+      </description>
+      <pubDate>Sat, 09 Apr 2016 06:42:00 MSK</pubDate>
+      <content:encoded><![CDATA[
+      <p>
+      Month:                   April 2016<br/>
+      Max Outside Temperature: 91.0&#176;F at 04/09/2016<br/>
+      Min Outside Temperature: 30.0&#176;F at 04/04/2016<br/>
+      Max Inside Temperature:  81.5&#176;F at 04/09/2016<br/>
+      Min Inside Temperature:  63.0&#176;F at 04/02/2016<br/>
+      Min Barometer:           990.7 mbar at 04/09/2016<br/>
+      Max Barometer:           1053.0 mbar at 04/02/2016<br/>
+      Max Wind :               50 mph from 9&#176; at 04/09/2016<br/>
+      Rain total for month:    0.03 in<br/>
+      </p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Yearly Weather Summary as of 04/09/2016 06:42:00 AM</title>
+      <link>/year.html</link>
+      <description>
+        Min outside temperature: 30.0&#176;F at 04/04/2016;
+        Max outside temperature: 91.0&#176;F at 04/09/2016;
+        Min inside temperature:  63.0&#176;F at 03/04/2016;
+        Max inside temperature:  81.5&#176;F at 04/09/2016;
+        Min barometer:           990.7 mbar at 04/09/2016;
+        Max barometer:           1053.0 mbar at 03/04/2016;
+        Max wind :               50 mph from 9&#176; at 04/09/2016;
+        Rain total for year:     0.18 in
+      </description>
+      <pubDate>Sat, 09 Apr 2016 06:42:00 MSK</pubDate>
+      <content:encoded><![CDATA[
+      <p>
+      Year:                    2016<br/>
+      Max Outside Temperature: 91.0&#176;F at 04/09/2016<br/>
+      Min Outside Temperature: 30.0&#176;F at 04/04/2016<br/>
+      Max Inside Temperature:  81.5&#176;F at 04/09/2016<br/>
+      Min Inside Temperature:  63.0&#176;F at 03/04/2016<br/>
+      Min Barometer:           990.7 mbar at 04/09/2016<br/>
+      Max Barometer:           1053.0 mbar at 03/04/2016<br/>
+      Max Wind :               50 mph from 9&#176; at 04/09/2016<br/>
+      Rain total for year:     0.18 in<br/>
+      </p>
+      ]]></content:encoded>
+    </item>
+
+   </channel>
+</rss>
+

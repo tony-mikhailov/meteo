@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<rss version="2.0" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" >
+   <channel>
+      <title>DDT, Sarov, Weather Conditions</title>
+      <link></link>
+      <description>Current conditions, and daily, monthly, and yearly summaries</description>
+      <language>en-us</language>
+      <pubDate>Sat, 09 Apr 2016 06:42:00 MSK</pubDate>
+
+      <lastBuildDate>Sat, 09 Apr 2016 06:42:00 MSK</lastBuildDate>
+      <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+      <generator>weewx 3.4.0</generator>
+      <ttl>1.000000 minute</ttl>
+      
+      <item>
+         <title>Weather Conditions at 09.04.2016 06:42</title>
+         <link>/index.html</link>
+         <description>
+           Outside temperature: 82.7&#176;F; 
+           Barometer: 29.493 inHg; 
+           Wind: 0 mph from      -; 
+           Rain rate: 0.00 in/hr; 
+           Inside temperature:      -
+         </description>
+         <pubDate>Sat, 09 Apr 2016 06:42:00 MSK</pubDate>
+	     <geo:lat>54.56</geo:lat>
+    	 <geo:long>43.19</geo:long>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Time:                09.04.2016 06:42<br/>
+             Outside Temperature: 82.7&#176;F<br/>
+             Inside Temperature:       -<br/>
+             Wind Chill:          82.7&#176;F<br/>
+             Heat Index:          82.7&#176;F<br/>
+             Dewpoint:            57.6&#176;F<br/>
+             Humidity:            42%<br/>
+             Barometer:           29.493 inHg<br/>
+             Wind:                0 mph from      -<br/>
+             Rain Rate:           0.00 in/hr<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+      <item>
+         <title>Daily Weather Summary as of 09.04.2016 06:42</title>
+         <link>/index.html</link>
+         <description>
+	        Min outside temperature: 30.2&#176;F at 06:34;
+         	Max outside temperature: 91.0&#176;F at 06:40;
+	        Min inside temperature:  63.0&#176;F at 03:03;
+	        Max inside temperature:  81.5&#176;F at 03:37;
+	        Min barometer:           29.259 inHg at 06:40;
+	        Max barometer:           31.100 inHg at 03:03;
+            Max wind :               50 mph from 9&#176; at 06:38;
+            Rain today:              0.00 in
+         </description>
+         <pubDate>Sat, 09 Apr 2016 06:42:00 MSK</pubDate>
+	     <geo:lat>54.56</geo:lat>
+    	 <geo:long>43.19</geo:long>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Day:                     09 Apr 2016<br/>
+	         Min Outside Temperature: 30.2&#176;F at 06:34<br/>
+	         Max Outside Temperature: 91.0&#176;F at 06:40<br/>
+	         Min Inside Temperature:  63.0&#176;F at 03:03<br/>
+	         Max Inside Temperature:  81.5&#176;F at 03:37<br/>
+	         Min Barometer:           29.259 inHg at 06:40<br/>
+	         Max Barometer:           31.100 inHg at 03:03<br/>
+             Max Wind :               50 mph from 9&#176; at 06:38<br/>
+             Rain today:              0.00 in<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+      <item>
+         <title>Monthly Weather Summary as of 09.04.2016 06:42</title>
+         <link>/month.html</link>
+         <description>
+	        Min outside temperature: 30.0&#176;F at 04.04.2016 07:55;
+         	Max outside temperature: 91.0&#176;F at 09.04.2016 06:40;
+	        Min inside temperature:  63.0&#176;F at 02.04.2016 16:24;
+	        Max inside temperature:  81.5&#176;F at 09.04.2016 03:37;
+	        Min barometer:           29.259 inHg at 09.04.2016 06:40;
+	        Max barometer:           31.100 inHg at 02.04.2016 16:24;
+            Max wind :               50 mph from 9&#176; at 09.04.2016 06:38;
+            Rain total for month:    0.03 in
+         </description>
+         <pubDate>Sat, 09 Apr 2016 06:42:00 MSK</pubDate>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Month:                   April 2016<br/>
+	         Max Outside Temperature: 91.0&#176;F at 09.04.2016 06:40<br/>
+	         Min Outside Temperature: 30.0&#176;F at 04.04.2016 07:55<br/>
+	         Max Inside Temperature:  81.5&#176;F at 09.04.2016 03:37<br/>
+	         Min Inside Temperature:  63.0&#176;F at 02.04.2016 16:24<br/>
+	         Min Barometer:           29.259 inHg at 09.04.2016 06:40<br/>
+	         Max Barometer:           31.100 inHg at 02.04.2016 16:24<br/>
+             Max Wind :               50 mph from 9&#176; at 09.04.2016 06:38<br/>
+             Rain total for month:    0.03 in<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+      <item>
+         <title>Yearly Weather Summary as of 09.04.2016 06:42</title>
+         <link>/year.html</link>
+         <description>
+	        Min outside temperature: 30.0&#176;F at 04.04.2016 07:55;
+         	Max outside temperature: 91.0&#176;F at 09.04.2016 06:40;
+	        Min inside temperature:  63.0&#176;F at 04.03.2016 22:42;
+	        Max inside temperature:  81.5&#176;F at 09.04.2016 03:37;
+	        Min barometer:           29.259 inHg at 09.04.2016 06:40;
+	        Max barometer:           31.100 inHg at 04.03.2016 22:42;
+            Max wind :               50 mph from 9&#176; at 09.04.2016 06:38;
+            Rain total for year:     0.18 in
+         </description>
+         <pubDate>Sat, 09 Apr 2016 06:42:00 MSK</pubDate>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Year:                    2016<br/>
+	         Max Outside Temperature: 91.0&#176;F at 09.04.2016 06:40<br/>
+	         Min Outside Temperature: 30.0&#176;F at 04.04.2016 07:55<br/>
+	         Max Inside Temperature:  81.5&#176;F at 09.04.2016 03:37<br/>
+	         Min Inside Temperature:  63.0&#176;F at 04.03.2016 22:42<br/>
+	         Min Barometer:           29.259 inHg at 09.04.2016 06:40<br/>
+	         Max Barometer:           31.100 inHg at 04.03.2016 22:42<br/>
+             Max Wind :               50 mph from 9&#176; at 09.04.2016 06:38<br/>
+             Rain total for year:     0.18 in<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+   </channel>
+</rss>

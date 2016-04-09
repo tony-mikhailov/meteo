@@ -1,0 +1,127 @@
+/* css for the exfoliation skin */
+/* Copyright 2012-2013 Matthew Wall */
+/* $Id: exfoliation.css 933 2014-06-23 02:41:09Z mwall $ */
+
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  background-color: #ffffff;
+}	
+h1 {
+  font-size: 110%;
+}
+h2 {
+  font-size: 100%;
+}
+a:link {
+  text-decoration: none;
+  color: #207020;
+}
+a:hover {
+  text-decoration: none;
+  color: #30a030;
+}
+a:visited {
+  text-decoration: none;
+  color: #207020;
+}
+
+#header {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+  clear: both;
+}
+
+#station_info {
+  float: left;
+}
+.station_title {
+  font-size: 120%;
+  font-weight: bold;
+}
+.station_subtitle {
+  font-size: 100%;
+}
+.station_location {
+  font-size: 75%;
+}
+.station_time {
+  font-size: 75%;
+}
+
+#observation_title {
+  clear: left;
+  font-weight: bold;
+  padding-top: 2px;
+}
+
+#navigation_controls {
+  float: right;
+  font-size: 85%;
+}
+#navigation_controls a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#data_graphs {
+}
+
+#data_table {
+  float: right;
+}
+
+#footer {
+  clear: both;
+  padding-top: 10px;
+}
+#footer p {
+  font-size: 8pt;
+  font-style: italic;
+  color: #aaaaaa;
+}
+
+.metrics {
+  font-size: 90%;
+}
+.metrics a {
+  text-decoration: none;
+}
+.metric_title {
+  text-align: left;
+  font-weight: bold;
+}
+.metric_name {
+  text-align: right;
+}
+.metric_large {
+  text-align: left;
+  font-weight: bold;
+  font-size: 230%;
+}
+.metric_value {
+  text-align: left;
+  font-weight: bold;
+}
+.metric_units {
+  text-align: left;
+}
+.hilo_time {
+  text-align: left;
+  color: #aaaaaa;
+  font-size: 85%;
+}
+.link_large {
+  font-weight: bold;
+  font-size: 180%;
+}
+
+#graphPopup {
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid #dddddd;
+}

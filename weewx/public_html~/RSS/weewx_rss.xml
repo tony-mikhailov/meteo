@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<rss version="2.0" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" >
+   <channel>
+      <title>Tony's dev PWS, Sarov, Weather Conditions</title>
+      <link></link>
+      <description>Current conditions, and daily, monthly, and yearly summaries</description>
+      <language>en-us</language>
+      <pubDate>Sat, 05 Mar 2016 02:34:00 MSK</pubDate>
+
+      <lastBuildDate>Sat, 05 Mar 2016 02:34:00 MSK</lastBuildDate>
+      <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+      <generator>weewx 3.4.0</generator>
+      <ttl>1.000000 minute</ttl>
+      
+      <item>
+         <title>Weather Conditions at 03/05/2016 02:34:00 AM</title>
+         <link></link>
+         <description>
+           Outside temperature: 0.1&#176;C; 
+           Barometer: 1053.0 mbar; 
+           Wind: 0.0 m/s from 360&#176;; 
+           Rain rate: 2.0 mm/hr; 
+           Inside temperature: 17.2&#176;C
+         </description>
+         <pubDate>Sat, 05 Mar 2016 02:34:00 MSK</pubDate>
+	     <geo:lat>54.56</geo:lat>
+    	 <geo:long>43.19</geo:long>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Time:                03/05/2016 02:34:00 AM<br/>
+             Outside Temperature: 0.1&#176;C<br/>
+             Inside Temperature:  17.2&#176;C<br/>
+             Wind Chill:          0.1&#176;C<br/>
+             Heat Index:          0.1&#176;C<br/>
+             Dewpoint:            -3.0&#176;C<br/>
+             Humidity:            80%<br/>
+             Barometer:           1053.0 mbar<br/>
+             Wind:                0.0 m/s from 360&#176;<br/>
+             Rain Rate:           2.0 mm/hr<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+      <item>
+         <title>Daily Weather Summary as of 03/05/2016 02:34:00 AM</title>
+         <link></link>
+         <description>
+	        Min outside temperature: 0.1&#176;C at 02:34:00 AM;
+         	Max outside temperature: 0.4&#176;C at 12:00:07 AM;
+	        Min inside temperature:  17.2&#176;C at 12:00:07 AM;
+	        Max inside temperature:  17.2&#176;C at 02:34:00 AM;
+	        Min barometer:           1053.0 mbar at 02:34:00 AM;
+	        Max barometer:           1053.0 mbar at 12:00:07 AM;
+            Max wind :               0.0 m/s from 360&#176; at 02:34:00 AM;
+            Rain today:              2.0 mm
+         </description>
+         <pubDate>Sat, 05 Mar 2016 02:34:00 MSK</pubDate>
+	     <geo:lat>54.56</geo:lat>
+    	 <geo:long>43.19</geo:long>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Day:                     05 Mar 2016<br/>
+	         Min Outside Temperature: 0.1&#176;C at 02:34:00 AM<br/>
+	         Max Outside Temperature: 0.4&#176;C at 12:00:07 AM<br/>
+	         Min Inside Temperature:  17.2&#176;C at 12:00:07 AM<br/>
+	         Max Inside Temperature:  17.2&#176;C at 02:34:00 AM<br/>
+	         Min Barometer:           1053.0 mbar at 02:34:00 AM<br/>
+	         Max Barometer:           1053.0 mbar at 12:00:07 AM<br/>
+             Max Wind :               0.0 m/s from 360&#176; at 02:34:00 AM<br/>
+             Rain today:              2.0 mm<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+      <item>
+         <title>Monthly Weather Summary as of 03/05/2016 02:34:00 AM</title>
+         <link>/month.html</link>
+         <description>
+	        Min outside temperature: -0.5&#176;C at 03/04/2016 11:51:58 PM;
+         	Max outside temperature: 0.4&#176;C at 03/04/2016 10:42:38 PM;
+	        Min inside temperature:  17.2&#176;C at 03/04/2016 10:42:38 PM;
+	        Max inside temperature:  17.3&#176;C at 03/04/2016 11:51:58 PM;
+	        Min barometer:           1052.9 mbar at 03/04/2016 11:51:58 PM;
+	        Max barometer:           1053.0 mbar at 03/04/2016 10:42:38 PM;
+            Max wind :               0.0 m/s from 359&#176; at 03/04/2016 11:51:58 PM;
+            Rain total for month:    2.0 mm
+         </description>
+         <pubDate>Sat, 05 Mar 2016 02:34:00 MSK</pubDate>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Month:                   March 2016<br/>
+	         Max Outside Temperature: 0.4&#176;C at 03/04/2016 10:42:38 PM<br/>
+	         Min Outside Temperature: -0.5&#176;C at 03/04/2016 11:51:58 PM<br/>
+	         Max Inside Temperature:  17.3&#176;C at 03/04/2016 11:51:58 PM<br/>
+	         Min Inside Temperature:  17.2&#176;C at 03/04/2016 10:42:38 PM<br/>
+	         Min Barometer:           1052.9 mbar at 03/04/2016 11:51:58 PM<br/>
+	         Max Barometer:           1053.0 mbar at 03/04/2016 10:42:38 PM<br/>
+             Max Wind :               0.0 m/s from 359&#176; at 03/04/2016 11:51:58 PM<br/>
+             Rain total for month:    2.0 mm<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+      <item>
+         <title>Yearly Weather Summary as of 03/05/2016 02:34:00 AM</title>
+         <link>/year.html</link>
+         <description>
+	        Min outside temperature: -0.5&#176;C at 03/04/2016 11:51:58 PM;
+         	Max outside temperature: 0.4&#176;C at 03/04/2016 10:42:38 PM;
+	        Min inside temperature:  17.2&#176;C at 03/04/2016 10:42:38 PM;
+	        Max inside temperature:  17.3&#176;C at 03/04/2016 11:51:58 PM;
+	        Min barometer:           1052.9 mbar at 03/04/2016 11:51:58 PM;
+	        Max barometer:           1053.0 mbar at 03/04/2016 10:42:38 PM;
+            Max wind :               0.0 m/s from 359&#176; at 03/04/2016 11:51:58 PM;
+            Rain total for year:     2.0 mm
+         </description>
+         <pubDate>Sat, 05 Mar 2016 02:34:00 MSK</pubDate>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Year:                    2016<br/>
+	         Max Outside Temperature: 0.4&#176;C at 03/04/2016 10:42:38 PM<br/>
+	         Min Outside Temperature: -0.5&#176;C at 03/04/2016 11:51:58 PM<br/>
+	         Max Inside Temperature:  17.3&#176;C at 03/04/2016 11:51:58 PM<br/>
+	         Min Inside Temperature:  17.2&#176;C at 03/04/2016 10:42:38 PM<br/>
+	         Min Barometer:           1052.9 mbar at 03/04/2016 11:51:58 PM<br/>
+	         Max Barometer:           1053.0 mbar at 03/04/2016 10:42:38 PM<br/>
+             Max Wind :               0.0 m/s from 359&#176; at 03/04/2016 11:51:58 PM<br/>
+             Rain total for year:     2.0 mm<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+   </channel>
+</rss>
+
